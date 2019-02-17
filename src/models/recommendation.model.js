@@ -10,6 +10,8 @@ const RecommendationSchema = new Schema({
         type: String,
         required: true,
         unique: true
+      latitude: Number,
+      longitude: Number
     }
     });
 

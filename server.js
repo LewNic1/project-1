@@ -31,6 +31,12 @@ const bodyParser = require('body-parser');
 //look at the incoming request and if it is an application/json it means the data in the body is a json string. the bodyParser will take that string convert it to json and create a property in the request object called body. and set the value there.
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 app.use((req, res, next)=>{
     console.log( `${new Date().toString()} => ${req.originalUrl}`, req.body)
     next()
@@ -59,68 +65,7 @@ app.use((err, req, res, next) =>{
 ///    DATA    ////
 //////////////////
 
-
-// let recommendations = [
-//     {
-//       _id: 15,
-//       name: "Per Diem",
-//       yelp: "https://www.yelp.com/biz/per-diem-san-francisco",
-//       description: "This is a fantastic restaurant.",
-//       email: "north@gmail.com"
-//     },
-//     {
-//       _id: 16,
-//       name: "Hog Island Oyster Co",
-//       yelp: "https://www.yelp.com/biz/hog-island-oyster-co-san-francisco",
-//       description: "This is a fantastic restaurant.",
-//       email: "east@gmail.com"
-//     },
-//     { 
-//       _id: 17,
-//       name: "Curry Up Now Food Truck",
-//       yelp: "https://www.yelp.com/biz/curry-up-now-food-truck-san-francisco",
-//       description: "This is a fantastic restaurant.",
-//       email: "south@gmail.com"
-//     },
-//     {
-//       _id: 18,
-//       name: "Señor Sisig",
-//       yelp: "https://www.yelp.com/biz/se%C3%B1or-sisig-san-francisco-3",
-//       description: "This is a fantastic restaurant.",
-//       email: "west@gmail.com"
-//     },
-//     {
-//       _id: 19,
-//       name: "Blue Bottle Coffee",
-//       yelp: "https://www.yelp.com/biz/blue-bottle-coffee-san-francisco-14",
-//       description: "This is a fantastic restaurant.",
-//       email: "northeast@gmail.com"
-//     },
-//     {
-//       _id: 20,
-//       name: "Workshop Cafe FiDi",
-//       yelp: "https://www.yelp.com/biz/workshop-cafe-fidi-san-francisco-2",
-//       description: "This is a fantastic restaurant.",
-//       email: "southeast@gmail.com"
-//     },
-//     {
-//       _id: 21,
-//       name: "The Treasury",
-//       yelp: "https://www.yelp.com/biz/the-treasury-san-francisco",
-//       description: "This is a fantastic restaurant.",
-//       email: "southwest@gmail.com"
-//     },
-//     {
-//       _id: 22,
-//       name: "La Fusión",
-//       yelp: "https://www.yelp.com/biz/la-fusi%C3%B3n-san-francisco-2",
-//       description: "This is a fantastic restaurant.",
-//       email: "northwest@gmail.com"
-//     }
-//   ];
-// console.log(recommendations)
-//   var newRecommendationUUID = 22;
-
+// Moved to seed.js
 
 ///////////////////
 //  ROUTES      //
