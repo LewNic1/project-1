@@ -1,4 +1,4 @@
-let db = require('./src/models')
+let db = require('./src/models');
 
 let recommendation_list = [
     {
@@ -71,7 +71,7 @@ db.RecommendationModel.remove({}, (err, authors) =>{
     console.log('removed all authors');
     db.RecommendationModel.create(recommendation_list, (err, recommendation) =>{
         if (err) {throw err}
-        console.log(recommendation_list)
+        console.log(recommendation_list);
     });
 });
 

@@ -13,20 +13,21 @@ $(document).ready(function(){
         url: `${yelpURL}`,
         success: function(response) {
           console.log(response);
-          let earthquakes = response.features;
-          for (let i = 0; i < earthquakes.length; i++) {
-            $('#info').append(`<p>${earthquakes[i].properties.title}</p>`);
+          let recommendations = response.features;
+          for (let i = 0; i < recommendations.length; i++) {
+            $('#info').append(`<p>${recommendations[i].properties.title}</p>`);
             var marker;
               marker = new google.maps.Marker({
               map: map,
               position: {
-                lat: earthquakes[i].geometry.coordinates[1],
-                lng: earthquakes[i].geometry.coordinates[0]
+                lat: recommendations[i].coordinates.latitude,
+                lng: recommendations[i].coordinates.longitude
               },
-              icon: {
-                url: './images/earthquake.png',
-                scaledSize: new google.maps.Size(30,30)
-              }
+            // We can set a custom pin icon if we want
+            //   icon: {
+            //     url: './images/earthquake.png',
+            //     scaledSize: new google.maps.Size(30,30)
+            //   }
             });
             $('#map').append(marker);
           };

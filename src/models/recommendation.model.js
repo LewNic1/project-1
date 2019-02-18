@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const RecommendationSchema = new Schema({
@@ -10,9 +9,9 @@ const RecommendationSchema = new Schema({
         type: String,
         required: true,
         unique: true
+      },
       latitude: Number,
       longitude: Number
-    }
     });
 
   

@@ -10,12 +10,12 @@ const mongoose = require("mongoose");
 //----------------------Importing Models & Routes---------------------------------
 
 //importing the entire models folder
-// const db = require('./src/models');
+const db = require('./src/models');
 
 // const rts = require('./src/routes');
 
 //-------------------Mongoose Connection---------------------------------
-mongoose.connect("mongodb://localhost/book-app", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/3000", { useNewUrlParser: true });
 
 
 
@@ -29,21 +29,21 @@ const bodyParser = require('body-parser');
 
 //----------------------App Use---------------------------------
 //look at the incoming request and if it is an application/json it means the data in the body is a json string. the bodyParser will take that string convert it to json and create a property in the request object called body. and set the value there.
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); //<--- I believe we can use this in place of the above line.
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
 app.use((req, res, next)=>{
     console.log( `${new Date().toString()} => ${req.originalUrl}`, req.body)
     next()
 })
 
-// body parser config to accept our datatypes
-// app.use(bodyParser.urlencoded({ extended: true })); //<--- I believe we can use this in place of the above line.
+
 
 
 app.use(recommendationRoute);

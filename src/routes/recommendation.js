@@ -55,7 +55,7 @@ router.put('/recommendation', (req, res) =>{
         return res.status(400).send('Missing URL parameter: email')
     }
 
-    RecommendationModel.findOneAndUpdate({
+    db.RecommendationModel.findOneAndUpdate({
         email: req.query.email
     }, req.body, {
         new: true
