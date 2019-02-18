@@ -10,7 +10,7 @@ In this training, we attempt to put together much of the work from this week. We
 
 ## Objectives
 
-We will be able to:
+Developers will be able to:
 - Use AJAX to grab data from the USGS earthquakes API
 - Use a template literal to display data from an AJAX call on your HTML page
 - Use the Google Maps API to embed a map
