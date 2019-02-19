@@ -23,31 +23,12 @@ mongoose.connect("mongodb://localhost/wce-app", { useNewUrlParser: true });
 
 
 
-//importing the route that we set up.
-// const personRoute = require('./routes/person');
-// const customerRoute = require('./routes/customer');
-// const countryRoute = require('./routes/country');
+//-------------------Route Connection---------------------------------
 const recommendRoute = require('./routes/recommend');
+
+//-------------------Path & Body Parser---------------------------------
 const path = require('path');
 const bodyParser = require('body-parser');
-
-
-
-//----------------------App Get---------------------------------
-app.get('/api/profile', function(req, res){
-    //res.send("starting my profile");
-    res.json({
-      name:"Darnell",
-      gitHubUsername: "rightbrainpapi",
-      githubLink:"https://github.com/rightbrainpapi/sf-wdi-51-assignments" ,
-      githubProfileImage: "https://github.com/rightbrainpapi",
-      personalSiteLink: "https://github.com/rightbrainpapi/Darnell-s-New-Project-0",
-      currentCity:"Oakland",
-      citiesBeenTo:[{name:"Barcelona", country:"Spain"},{ name:"Stockholm", contry:"Sweden"},
-      {name:"Paris",contry:"France"}]
-    })
-   });
-
 
 //----------------------App Use---------------------------------
 //look at the incoming request and if it is an application/json it means the data in the body is a json string. the bodyParser will take that string convert it to json and create a property in the request object called body. and set the value there.
@@ -59,9 +40,7 @@ app.use((req, res, next)=>{
 })
 
 app.use(recommendRoute);
-// app.use(personRoute);
-// app.use(customerRoute);
-// app.use(countryRoute);
+
 
 //I am making use of the express function called express.static to view all static pages in the public folder.
 app.use(express.static('public'))
