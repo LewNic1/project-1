@@ -1,17 +1,19 @@
 {
-  "name": "watchu_eatin_app",
+  "name": "my_restful",
   "version": "1.0.0",
-  "description": "watchu_eatin_app",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Oakland 4",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongoose": "^5.4.13"
+    "mongoose": "^5.4.12",
+    "nodemon": "^1.18.10"
   }
 }
