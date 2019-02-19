@@ -75,4 +75,3 @@ db.RecommendationModel.remove({}, (err, authors) =>{
     });
 });
 
-// let newRecommendationUUID = 22; what does this do?
