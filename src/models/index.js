@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/3000");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/4000");
 
 module.exports = {
-    GroupModel: require('./GroupModel');
-    RecommendationModel: require('./RecommendationModel');
+    GroupModel: require('./group.model'),
+    RecommendModel: require('./recommend.model')
 }

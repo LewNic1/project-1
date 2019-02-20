@@ -25,8 +25,8 @@ $(document).ready(function(){
   
   $.ajax({
     method: 'GET',
-    url: '/recommendations',
-    success: load,
+    url: 'localhost:4000/recommendations',
+    success: loadRecommendations,
     error: handleError
   });
 

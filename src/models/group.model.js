@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-Recommendation = require('./recommendation.model')
+Recommendation = require('./recommend.model')
 
 const GroupSchema = new Schema({
       name: String, // <- To identify the group, will become picklist with a couple options
