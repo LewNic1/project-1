@@ -10,6 +10,8 @@ const RecommendSchema = new Schema({
           type: String,
           required: true
       },
+      latitude: Number,
+      longitude: Number
     });
 
       // models/author.js
