@@ -24,43 +24,28 @@
     <title>Watchu Eatin</title>
   </head>
   <body>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
-            <div id="map"></div>
+      <nav>
+          <h1>Watchu Eatin</h1>
+      </nav>
+
+      <main id="myMain">
+
+        <section class= "mapRec">
+          <div class="map-sub">
+              <span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>    <div id="map"></div>
           </div>
-          <div class="col-xs-12 col-md-6">
-            <div id="info">
-              <h1>Welcome to Watchu Eatin (on express)</h1>
-              <div id="map">
-                <!-- Bryant Testing Map Load -->
-              </div>
-              <p class='yelp-link-test'>https://www.yelp.com/biz_photos/shinmai-oakland?select=SzW6idhi9S7vqWCdHjml2A</p>
-              <div>
-                <form action="#" method="POST">
-                  <input type="text" placeholder="Recommender Name">
-                  <input id="yelp-link" type="text" placeholder="Yelp Link">
-                  <textarea placeholder="Description"></textarea>
-                  <input type="email" placeholder="Email">
-                  <button type="submit">Submit</button>
-                </form>
-                
-              </div>
-              
-              <div class="recommend">
 
                 <!-- Recommendation Sub section Begins -->
                     <div class="recommend-sub">
-                      <h1><a name="Recommendation">Recommendation</a></h1>
                             <form class="theForm"method="POST" action="/post">
+                              <h2>Recommendation</h2>
+                              <div class="column">
+                              <input type="text" id="name" placeholder="Your Name">
+                              <input type="text" id="email" placeholder="Email">
+                              <!-- <input type="text" id="yelp-link" placeholder="Yelp Link"> -->
+                              </div>
           
-                               <div class="column">
-                               <input type="text" id="name" placeholder="Your Name">
-                               <input type="text" id="yelp-link" placeholder="Yelp Link">
-                               <input type="text" id="email" placeholder="Email">
-                               </div>
-          
-                               <div id="description">
+                              <div id="description">
                                 <textarea  placeholder="Description"></textarea>
                               </div>
                               <!-- <button type="submit" class="btn btn-success">Submit</button> -->
@@ -69,19 +54,16 @@
                             </form>
                     </div>
                 <!-- Recommendation Sub section Ends -->
-              </div>
+        </section>
 
-
-
-
-
-
-              <div id="recommendations">
-                <!-- Bryant Testing Recommendation Load -->
-              </div>
-            </div>
+        <section class="myRec">
+          <div class="">
+            <h2>Recommendations by:</h2>
           </div>
-        </div>
-      </div>
+
+        </section>
+
+    </main>
+
   </body>
 </html>
