@@ -38,19 +38,23 @@ If your partner forked the repository originally, you should fork their reposito
 ## Instructions
 
 #### Part 1. Rendering Data
-We took a moment to familiarize ourselves with the dataset by opening it in your browser: [https://api.yelp.com/v3/businesses/].
+We took a moment to familiarize ourselves with the dataset by opening it in our browser: [https://api.yelp.com/v3/businesses/].
 
-+ What is the structure of the data?
-    + How would you grab its title?
-        * How would you grab its geological coordinates:
++ We asked ourselves, "What is the structure of the data?"
+    + "How would you grab its title?"
+        * "How would you grab its geological coordinates:"
             - *latitude*?
             - *longitude*?
 
-Write out the AJAX call that will grab the data and `console.log` the list of restaurant.
+#### Pain Point
+- Yelp does not allow frontend pull of its API.
 
-#### Part 2. Add the title data to the page
 
-**Add each *title* to the page**: Loop over your JSON response object, and each `title` to the page using jQuery. Aim to put each title inside the `<div id="info">` section of the page. For example:
+Write out the AJAX call that will grab the data and `console.log` the of restaurant's geological coordinates.
+
+#### Part 2. Add the Description data to the page
+
+**Add each *description* to the page**: Loop over your JSON response object, and each `description` to the page using jQuery. Aim to put each description inside the `<div id="info">` section of the page. For example:
 
 ```html
 <div id="info">
@@ -67,22 +71,12 @@ Write out the AJAX call that will grab the data and `console.log` the list of re
 - Your next goal is to integrate Google Maps:
     - Follow the tutorial at [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
         + Note that you would normally need to sign up for an API key, but we've provided one (See `index.html` line 18)
-        + Note also that the instructions given there involve creating an `initMap` callback function. We don't need one of those: you can put the code inside of their `initMap` function directly into your `$(document).ready` callback.
-    - Please center your map on your city:
-        - Austin:  `{lat: 30.2682, lng: -97.74295}`
-        - San Francisco: `{lat: 37.78, lng: -122.44}`
+    - We centered our map on your GA's Campus:
+        - General Assembly San Francisco: `{lat: 37.78, lng: -122.44}`
 
         > NOTE: The proper implementation will entail writing your code for Google Maps integration in `app.js` only.  There is no need to alter `index.html` as some resources may recommend.
 
 #### Part 4. Add pins to your map
-Once you've got the map to show up, your next goal is to drop a single pin on your city. This is a sanity check.  
-- Next, can you add only the first earthquake to the map?
-- Can you add pins for *all* the earthquakes to the map?
-- Finally, can you replace the pin with the `earthquake.png` icon?
+Once you got the map to show up, our next goal was to drop a single pin on a restuarant.
+- Finally, can you replace the pin with the `watchueatin.png` icon?
 
-#### Bonus:
-Extend your template:  
-- Calculate how long ago the quake occurred and add it to the page. E.g. "28 hours ago". Currently, the time that the API returns is in Unix time (seconds since 1/1/1970). That's a nice format for computers, but not a nice format for humans.
-- Parse the title to only include the location, E.g. Instead of "M 4.2 - 1km ESE of Fontana, California", it should just say "Fontana, California."
-- Create a visual indicator of the magnitude of a quake. For instance, maybe a 4.0 is indicated by a "yellow" dot, a 5.0 by an "orange" dot, and anything larger is "red".
-- Create a button that allows us to switch the map from having a 'weekly' view to a 'monthly' view of all quakes. Hint: look through the USGS website to see available endpoints.
