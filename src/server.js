@@ -18,11 +18,6 @@ const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
 
-//-------------------Mongoose Connection---------------------------------
-// mongoose.connect("mongodb://localhost/wce-app", { useNewUrlParser: true });
-
-
-
 //-------------------Route Connection---------------------------------
 const recommendRoute = require('./routes/recommend');
 

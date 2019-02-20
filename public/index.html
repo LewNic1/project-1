@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- Google Maps API -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places"></script>
 
     <!-- Custom JS -->
     <script src="scripts/config.js"></script>
@@ -32,10 +32,10 @@
           <div class="col-xs-12 col-md-6">
             <div id="info">
               <h1>Welcome to Watchu Eatin (on express)</h1>
+              <input id='pac-input' placeholder='Recommend a place'>
               <div id="map">
                 <!-- Bryant Testing Map Load -->
               </div>
-              <p class='yelp-link-test'>https://www.yelp.com/biz_photos/shinmai-oakland?select=SzW6idhi9S7vqWCdHjml2A</p>
               <div>
                 <form action="#" method="POST">
                   <input type="text" placeholder="Recommender Name">
