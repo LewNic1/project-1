@@ -1,72 +1,109 @@
-//[x]get data about earth quarks from USGS earthquakes API
-//[x]use template literals aka back-tick style of concatinating
-//[] use google api to grab a map
-//[] use pinpoints to stick on map
-// define globals
-var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
+//Here is where the map ajax will go
+let yelpURL;
+let yelpAPIKey;
+let yelpLink;
+let bizAlias;
+let recommendation_list = [];
+let getBizAlias = function(){};
+let lookupLocation = function(){};
+let getCoordinates = function(){};
+let loadRecommendations = function(){};
 
-$(document).ready(function() {
+// - Setting up APIs
+$(document).ready(function(){
 
-  console.log("Let's get coding!");
+  console.log('Doc Ready');
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.773972, lng: -122.431297},
-      zoom: 2
-    });
+  yelpURL = config.yelpURL;
+  yelpAPIKey = config.yelpAPIKey;
+  yelpLink = $('#yelp-link');
 
-
+  let map = new google.maps.Map(document.getElementById('map'),{
+      center: {lat: 37.7909, lng: -122.4013},
+      zoom: 16
+      });
+  
   $.ajax({
     method: 'GET',
-    url: "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson",
-    // url: 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02',
-    success: function(data){
-      console.log(data);
-
-      data.features.map(function(index){
-
-
-//Time portion starts
-        var myTimeMs = index.properties.time
-        console.log(myTimeMs)
-        // debugger;
-        var myTimeHr = Math.floor(parseInt((myTimeMs/3600000)));
-        console.log(myTimeHr);
-        // debugger;
-        // $("p").append(Math.floor(myTimeHr))
-//Time Portion ends
-
-// Title Portion starts
-        let myTitle = `<p>${index.properties.title +" " + myTimeHr + " hours ago."}</p>`;
-        $('#info').append(myTitle)
-//Title Portion ends
-
-        var lata = index.geometry.coordinates[0];
-        var long = index.geometry.coordinates[1];
-        console.log(lata, long)
-
-//We had to resize the image
-        var myimage = {
-          url: 'images/earthquake.png',
-          scaledSize: new google.maps.Size(30, 30),
-          origin: new google.maps.Point(0,0), 
-          anchor: new google.maps.Point(0, 0)
-        };
-//variable set up and new map creation
-        var myNewMap = new google.maps.LatLng(lata, long);
-
-//variable set up and marker pinning
-        var houseMarker = new google.maps.Marker({
-          position: myNewMap,
-          map: map,
-          icon: myimage,
-        });
-      });
-    }
-  })
+    url: 'localhost:4000/recommendations',
+    success: loadRecommendations,
+    error: handleError
   });
 
 
 
+  function loadRecommendations(recommendation) {       
+    $.each (recommendation, (rec => {
+      $('#recommendation').append(
+        `<div>
+          <p>${rec.name}</p>
+          <p>${rec.yelpLink}</p>
+          <p>${rec.description}</p>
+        </div>`);
 
+        let marker;
+        marker = new google.maps.Marker({
+          map: map,
+            position: {
+              lat: `${rec.latitude}`,
+              lng: `${rec.longitude}`
+            },
+          // We can set a custom pin icon if we want
+          //   icon: {
+          //     url: './images/earthquake.png',
+          //     scaledSize: new google.maps.Size(30,30)
+          //   }
+          });
+          $('#map').append(marker);
+    }));
+  };
+  
+  $.ajax({
+    method: 'GET',
+    url: '/',
+    success: handleSuccess,
+    error: handleError
+  });
 
+  function handleSuccess(response) {
+    res.json(response);
+  };
 
+  function handleError() {
+    console.log('uh oh');
+  };
+
+// Function to get bizAlias for yelpAPI call and coordinates
+    
+   getBizAlias = function () {
+      let yelpLink = $('.yelp-link-test').html();
+        console.log(yelpLink);
+      let questionMarkIndex = yelpLink.indexOf('?')
+        console.log(questionMarkIndex);
+      const lastSlashIndex = yelpLink.lastIndexOf('/')
+        console.log(lastSlashIndex);
+      if (questionMarkIndex === -1) {
+        questionMarkIndex = yelpLink.length
+      }
+      bizAlias = yelpLink.substring(lastSlashIndex + 1, questionMarkIndex)
+      console.log(bizAlias);
+    };
+// Function to lookup business
+     lookupLocation = function() {
+      getBizAlias();
+      $.ajax({
+        method: 'GET',
+        url: `${yelpURL}${bizAlias}`,
+        //replace API key with variable
+        Authorization: `ggjGZ7Ke4SFvR-CiWy5D62_b6C3AALsCd0mxDl1fVy5xjxVXkY_lPxIubyL3aM8B4RdXkqsrtu7dUHLchp-4wYfcNw-R8OjTx9-qncc9rx2Pk2Q03sPfyB8_v1JnXHYx`,
+        success: getCoordinates(json),
+        error: handleError
+      });
+    };
+
+  getCoorindates = function(json) {
+    let latitude = parceInt(json.coordinates.latitude);
+    let longitude = parceInt(json.coordinates.longitude);
+  };
+
+});

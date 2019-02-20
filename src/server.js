@@ -62,5 +62,6 @@ app.use((err, req, res, next) =>{
 //(**The Port value is defined in the command line before starting the project.**)
 const PORT = process.env.PORT || 4000 //changed port to 4000 to connect to Heroku
 
+
 //Express is listening to a port on the machine. This port is 
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`))

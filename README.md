@@ -1,35 +1,36 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> GeoQuakes
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Watchu Eatin
 
 ## Introduction
 
-> ***Note:*** *This is a pair programming activity! You must work with a partner on this project! There are many pieces that could trip you up, so having two pairs of eyes and two brains on one set of code will be an important tactic to minimize errors and generate ideas.*
+> ***Note:*** *Project 1 is a group programming project designed to show users(namely, WDI 51 students) restaurant options near the San Francisco General Assembly Campus. Our group members consist of Nicolette Lewis, Jonathan Jolivette, Bryant Pham, & Darnell Simon.*
 
-In this training, we attempt to put together much of the work from this week. We'll be using jQuery's `ajax()` function to make calls to a third party API.  We will be using live data from the USGS (United States Geological Survey), specifically a data set showing significant earthquakes (M4.0 or greater) from the past week.
+In Project 1, we attempt to put together much of the work from the last several weeks. We will be using jQuery's `ajax()` function to make calls to a Yelp's API to retrieve the coordinates of restuarants. We will then use those coordinates to load pins onto a google map. 
 
-![](https://media.giphy.com/media/3o7bubiK9vDtxXCOgU/giphy.gif)
+![](https://media.giphy.com/media/iMBIti67aQVqvIXTrr/giphy.gif)
 
 ## Objectives
 
-Developers will be able to:
-- Use AJAX to grab data from the USGS earthquakes API
+Developers must:
+- Use AJAX to grab data from the Yelp's API
 - Use a template literal to display data from an AJAX call on your HTML page
 - Use the Google Maps API to embed a map
+- Use the Longitude and Latitude data from Yelp's API to 
 
-## GeoQuakes
+## Watchu Eatin
 
 #### Starter code
 
-Get started with the code provided in `index.html` and `scripts/app.js`.
+There was no started code. We referenced passed lessons to piece together our idea.
 
 #### Deliverable
 
 Our goal is to:
-- List information about each quake.
-- Display a Google Map with a pin at the epicenter of each quake.
+- Connect our frontend with our backend
+- Display a Google Map with a pin at the location of each of every recommendation a user posts.
 
-Here's a screenshot of what the final product could look like:
+Here's a screenshot of what the final product looks like:
 
-![geoquakes](https://cloud.githubusercontent.com/assets/4304660/25784846/9905f872-3339-11e7-92c5-30775b6bb8f4.png)
+![whatchueatin](https://cloud.githubusercontent.com/assets/4304660/25784846/9905f872-3339-11e7-92c5-30775b6bb8f4.png)
 
 If your partner forked the repository originally, you should fork their repository **after you finish working together** so that you'll have your own copy of your work to edit in the future. Link your own repo to your personal website.
 

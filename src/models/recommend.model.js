@@ -9,7 +9,9 @@ const RecommendSchema = new Schema({
       email: {
           type: String,
           required: true
-      }
+      },
+      latitude: Number,
+      longitude: Number
     });
 
       // models/author.js
