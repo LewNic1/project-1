@@ -19,7 +19,7 @@ const app = express();
 const mongoose = require("mongoose");
 
 //-------------------Mongoose Connection---------------------------------
-mongoose.connect("mongodb://localhost/wce-app", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/wce-app", { useNewUrlParser: true });
 
 
 

@@ -25,7 +25,7 @@ $(document).ready(function(){
   
   $.ajax({
     method: 'GET',
-    url: 'localhost:4000/recommendations',
+    url: '/recommendations',
     success: loadRecommendations,
     error: handleError
   });
@@ -58,12 +58,12 @@ $(document).ready(function(){
     }));
   };
   
-  $.ajax({
-    method: 'GET',
-    url: '/',
-    success: handleSuccess,
-    error: handleError
-  });
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/',
+  //   success: handleSuccess,
+  //   error: handleError
+  // });
 
   function handleSuccess(response) {
     res.json(response);
@@ -95,8 +95,9 @@ $(document).ready(function(){
         method: 'GET',
         url: `${yelpURL}${bizAlias}`,
         //replace API key with variable
-        Authorization: `ggjGZ7Ke4SFvR-CiWy5D62_b6C3AALsCd0mxDl1fVy5xjxVXkY_lPxIubyL3aM8B4RdXkqsrtu7dUHLchp-4wYfcNw-R8OjTx9-qncc9rx2Pk2Q03sPfyB8_v1JnXHYx`,
-        success: getCoordinates(json),
+        headers: {
+          "Authorization": "Bearer ggjGZ7Ke4SFvR-CiWy5D62_b6C3AALsCd0mxDl1fVy5xjxVXkY_lPxIubyL3aM8B4RdXkqsrtu7dUHLchp-4wYfcNw-R8OjTx9-qncc9rx2Pk2Q03sPfyB8_v1JnXHYx"},
+        success: (json)=>{getCoordinates(json)},
         error: handleError
       });
     };
