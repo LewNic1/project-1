@@ -67,9 +67,9 @@ let recommendation_list = [
      }
    ];
 
-db.RecommendationModel.remove({}, (err, authors) =>{
+db.RecommendModel.remove({}, (err, authors) =>{
     console.log('removed all authors');
-    db.RecommendationModel.create(recommendation_list, (err, recommendation) =>{
+    db.RecommendModel.create(recommendation_list, (err, recommendation) =>{
         if (err) {throw err}
         console.log(recommendation_list);
     });

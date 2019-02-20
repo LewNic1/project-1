@@ -9,7 +9,7 @@ const RecommendSchema = new Schema({
       email: {
           type: String,
           required: true
-      }
+      },
     });
 
       // models/author.js
