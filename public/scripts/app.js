@@ -8,27 +8,35 @@ $(document).ready(function(){
   console.log('Doc Ready');
 
   function initAutocomplete() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.7909, lng: -122.4013},
       zoom: 16,
       mapTypeId: 'roadmap'
     });
 
     // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
+    let input = document.getElementById('pac-input');
+    let searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Creating pin info window
+    let infowindow = new google.maps.InfoWindow();
+    // Connecting place services
+    let service = new google.maps.places.PlacesService(map);
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
 
-    var markers = [];
+    let markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
     searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
+      let places = searchBox.getPlaces();
+      console.log(places);
+      console.log(places[0].place_id);
+      console.log(places[0].geometry.location);
 
       if (places.length == 0) {
         return;
@@ -41,13 +49,15 @@ $(document).ready(function(){
       markers = [];
 
       // For each place, get the icon, name and location.
-      var bounds = new google.maps.LatLngBounds();
+      let bounds = new google.maps.LatLngBounds();
+      console.log(bounds);
       places.forEach(function(place) {
         if (!place.geometry) {
           console.log("Returned place contains no geometry");
           return;
         }
-        var icon = {
+
+        let icon = {
           url: place.icon,
           size: new google.maps.Size(71, 71),
           origin: new google.maps.Point(0, 0),
