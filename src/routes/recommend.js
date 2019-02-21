@@ -43,6 +43,16 @@ router.get('/recommend',(req, res) => {
     })
 })
 
+router.get('/recommend/:name',(req, res) => {
+    console.log('route triggered')
+    RecommendModel.find()
+    .exec((err,data)=>{
+        if (err){
+            res.send(err)
+        }
+        res.send(data)
+    })
+})
 
 //-------------------Update Request-----------------------
 router.put('/recommend', (req, res) =>{

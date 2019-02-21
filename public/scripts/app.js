@@ -22,22 +22,7 @@ $(document).ready(function(){
   })
 
   let $recDiv = $('#recList');
-  function loadRecommendations(json) {
-    json.forEach((rec) => {
-      $recDiv.append(
-        `<div class='rec-item'>
-          <div class='rec-details'>
-            <h4>${rec.name}</h4>
-            <h5>${rec.yelp}</h5>
-            <p>${rec.description}</p>
-          </div>
-          <div class='rec-photo'>
-          </div>
-        </div>`
-        );
-      
-    });
-  };
+
 
   $.ajax({
     method: "GET",
@@ -55,7 +40,7 @@ $(document).ready(function(){
 
 // Google Maps Functions
 
-  function initAutocomplete() {
+  // function initAutocomplete() {
     let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.7909, lng: -122.4013},
       zoom: 16,
@@ -134,8 +119,34 @@ $(document).ready(function(){
       });
       map.fitBounds(bounds);
     });
-  }
-  initAutocomplete();
+  // }
+  // initAutocomplete();
+
+  function loadRecommendations(json) {
+    let recMarker;
+    json.forEach((rec) => {
+      $recDiv.append(
+        `<div class='rec-item'>
+          <div class='rec-details'>
+            <h4>${rec.name}</h4>
+            <h5>${rec.yelp}</h5>
+            <p>${rec.description}</p>
+          </div>
+          <div class='rec-photo'>
+          </div>
+        </div>`
+        );
+
+      recMarker = new google.maps.Marker({
+        map: map,
+        title: rec.name,
+        position: {
+          lat: parseInt(rec.latitude),
+          lng: parseInt(rec.longitude)
+        }
+      });    console.log(recMarker);
+    });
+  };
 
 });
 
@@ -160,6 +171,5 @@ window.onclick = function(event) {
     }
   }
 }
-
 
 //------------------drop down functionality ends here------------------------------- 
