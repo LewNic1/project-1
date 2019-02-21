@@ -172,4 +172,20 @@ window.onclick = function(event) {
   }
 }
 
+
 //------------------drop down functionality ends here------------------------------- 
+
+
+
+//---------------landing.html functionality Begins----------------- 
+
+
+
+
+
+
+
+
+
+
+// ---------------landing.html functionality Ends----------------- 

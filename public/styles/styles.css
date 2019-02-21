@@ -1,3 +1,31 @@
+
+
+
+
+/* ---------------Style for landing.html Begins----------------- */
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for landing.html Ends----------------- */
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for Index.html Begins----------------- */
 nav > h1{
   margin-left: 10px;
 }
@@ -94,8 +122,9 @@ textarea{
   width: 100%;
 }
 
-button {
+.btn {
   background-color: yellow;
+  width: 100%;
 }
 /*the form styling ends*/
 
