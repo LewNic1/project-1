@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-let express = require('express')
-let router = express.Router()
-let db = require('../models');
-let RecommendModel = db.RecommendModel;
-=======
 
 let express = require('express')
 let router = express.Router()
 let db = require('../models')
 let RecommendModel = db.RecommendModel
->>>>>>> 12753212cf99e2d7e65ef913e2c7d0e4499b182f
 
 // create a new recommend
 // Post Localhost:300/recommend
@@ -44,18 +37,6 @@ router.post('/recommend', (req, res) => {
 });
 
 //-------------------Get Request-----------------------
-<<<<<<< HEAD
-router.get('/recommend', (req, res) => {
-    if (!req.query.email){
-        return res.status(400).send('Missing URL parameter: email')
-    }
-
-    RecommendModel.find({}, (err, data) => {
-        if ( err ) { throw err }
-
-        res.json(data);
-    });
-=======
 router.get('/recommend',(req, res) => {
     console.log('route triggered')
     RecommendModel.find()
@@ -65,12 +46,11 @@ router.get('/recommend',(req, res) => {
         }
         res.send(data)
     })
->>>>>>> 12753212cf99e2d7e65ef913e2c7d0e4499b182f
 })
 
-router.get('/recommend/:name',(req, res) => {
+router.get('/recommend/:author',(req, res) => {
     console.log('route triggered')
-    RecommendModel.find()
+    RecommendModel.find({author: req.params.author})
     .exec((err,data)=>{
         if (err){
             res.send(err)
@@ -84,13 +64,8 @@ router.put('/recommend', (req, res) =>{
     if (!req.query.email){
         return res.status(400).send('Missing URL parameter: email')
     }
-<<<<<<< HEAD
-    
-    RecommendModel.findOneAndUpdate({
-=======
 
     db.RecommendModel.findOneAndUpdate({
->>>>>>> 12753212cf99e2d7e65ef913e2c7d0e4499b182f
         email: req.query.email
     }, req.body, {
         new: true
