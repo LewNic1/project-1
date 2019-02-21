@@ -1,6 +1,8 @@
-let RecommendModel = require('../models/recommend.model');
+
 let express = require('express')
 let router = express.Router()
+let db = require('../models')
+let RecommendModel = db.RecommendModel
 
 // create a new recommend
 // Post Localhost:300/recommend
@@ -17,11 +19,6 @@ router.post('/recommend', (req, res)=>{
     // }
 
     let model = new RecommendModel(req.body) //<--- mongoose will take to the mogodriver and tell it to take the details the user posted and validate it via the recommend model and save it to the database. 
-    
-    console.log("//////////////////////////////")
-    console.log(model)
-    console.log("//////////////////////////////")
-    
     model.save()
         .then(doc =>{ //<-----This is a promise and promises handle error and catch.
             if (!doc || doc.length === 0){
@@ -36,18 +33,13 @@ router.post('/recommend', (req, res)=>{
 
 //-------------------Get Request-----------------------
 router.get('/recommend',(req, res) => {
-    if (!req.query.email){
-        return res.status(400).send('Missing URL parameter: email')
-    }
-
-    RecommendModel.findOne({
-        email: req.query.email
-    })
-    .then(doc =>{
-        res.json(doc)
-    })
-    .catch(err =>{
-        res.status(500).json(err)
+    console.log('route triggered')
+    RecommendModel.find()
+    .exec((err,data)=>{
+        if (err){
+            res.send(err)
+        }
+        res.send(data)
     })
 })
 
@@ -58,7 +50,7 @@ router.put('/recommend', (req, res) =>{
         return res.status(400).send('Missing URL parameter: email')
     }
 
-    RecommendModel.findOneAndUpdate({
+    db.RecommendModel.findOneAndUpdate({
         email: req.query.email
     }, req.body, {
         new: true

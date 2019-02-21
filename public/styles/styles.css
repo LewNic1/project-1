@@ -23,6 +23,16 @@ nav > h1{
   margin: 10px;
 }
 
+#recBy {
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#myDropdown {
+  height: 300px;
+  overflow-y: scroll;
+}
+
 select{
   align-self: right;
 }

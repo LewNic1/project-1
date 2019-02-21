@@ -7,18 +7,48 @@ $(document).ready(function(){
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
     let formData = $(".theForm").serialize();
+    console.log(formData);
     $.ajax({
       method: "POST",
       url: '/recommend',
       data: formData,
       success: function(res) {
-        console.log("success!!", response)
+        console.log("success!!", res)
       },
       error: function(err) {
         console.log("uh oh, something went wrong", err);
       }
     });
   })
+
+  let $recDiv = $('#recBy');
+  function loadRecommendations(json) {
+    json.forEach((rec) => {
+      $recDiv.append(
+        `<div>
+          <h3>${rec.name}</h3>
+          <h3>${rec.yelp}</h3>
+          <h3>${rec.description}</h3>
+        </div>`
+        );
+    });
+  };
+  
+  $.ajax({
+    method: "GET",
+    url: '/recommend',
+    success: function(res) {
+      console.log("Found it", res);
+      loadRecommendations(res);
+    },
+    error: function(err) {
+      console.log("uh oh, something went wrong", err);
+    }
+  });
+
+
+
+// Google Maps Functions
 
   function initAutocomplete() {
     let map = new google.maps.Map(document.getElementById('map'), {
