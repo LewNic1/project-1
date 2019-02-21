@@ -192,3 +192,10 @@ textarea{
   color: white;
 }
 
+.rec-options a {
+  color: white;
+}
+
+.rec-options a:hover {
+  color: grey;
+}

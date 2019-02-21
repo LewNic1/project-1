@@ -6,7 +6,7 @@ $(document).ready(function(){
   // Front end AJAX
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
-    let formData = $(".theForm").serialize();
+    let formData = $(this).serialize();
     console.log(formData);
     $.ajax({
       method: "POST",
@@ -87,12 +87,14 @@ $(document).ready(function(){
           return;
         }
         
+        let recPlaceName = place.name;
+        // console.log(recPlaceName);
         let recPlaceId = place.place_id;
-        console.log(recPlaceId);
+        // console.log(recPlaceId);
         let recLatitude = place.geometry.location.lat();
-        console.log(recLatitude);
+        // console.log(recLatitude);
         let recLongitude = place.geometry.location.lng();
-        console.log(recLongitude);
+        // console.log(recLongitude);
 
         let icon = {
           url: place.icon, // update with our own
@@ -109,6 +111,8 @@ $(document).ready(function(){
           title: place.name,
           position: place.geometry.location
         }));
+        
+        console.log(markers);
 
         if (place.geometry.viewport) {
           // Only geocodes have viewport.
@@ -129,20 +133,22 @@ $(document).ready(function(){
         `<div class='rec-item'>
           <div class='rec-details'>
             <h4>${rec.name}</h4>
-            <h5>${rec.yelp}</h5>
-            <p>${rec.description}</p>
+            <h5>${rec.description}</h5>
+            <p>${rec.yelp}</p>
           </div>
-          <div class='rec-photo'>
+          <div class='rec-options'>
+            <a href="#" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
+            <a href="#" class='rec-delete'><i class="fas fa-trash-alt"></i></a>
           </div>
         </div>`
         );
-
+      console.log(`${rec.latitude}  parsed: ${parseFloat(rec.latitude)}`);
       recMarker = new google.maps.Marker({
         map: map,
         title: rec.name,
         position: {
-          lat: parseInt(rec.latitude),
-          lng: parseInt(rec.longitude)
+          lat: parseFloat(rec.latitude),
+          lng: parseFloat(rec.longitude)
         }
       });    console.log(recMarker);
     });
