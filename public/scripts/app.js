@@ -17,7 +17,7 @@ $(document).ready(function(){
     // Create the search box and link it to the UI element.
     let input = document.getElementById('pac-input');
     let searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Creating pin info window
     let infowindow = new google.maps.InfoWindow();
