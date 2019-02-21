@@ -51,6 +51,16 @@ nav > h1{
   margin: 10px;
 }
 
+#recList {
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#myDropdown {
+  height: 300px;
+  overflow-y: scroll;
+}
+
 select{
   align-self: right;
 }
@@ -176,4 +186,9 @@ textarea{
 
 /* ---------------Style for Dropdown Ends----------------- */
 
-/* ---------------Style for Index.html Ends----------------- */
+/* Style For Recommendation List and Items */
+.rec-item {
+  border: 1px solid white;
+  color: white;
+}
+
