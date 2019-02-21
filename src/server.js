@@ -34,10 +34,10 @@ const bodyParser = require('body-parser');
 //look at the incoming request and if it is an application/json it means the data in the body is a json string. the bodyParser will take that string convert it to json and create a property in the request object called body. and set the value there.
 app.use(bodyParser.json());
 
-app.use((req, res, next)=>{
-    console.log( `${new Date().toString()} => ${req.originalUrl}`, req.body)
-    next()
-})
+// app.use((req, res, next)=>{
+//     console.log( `${new Date().toString()} => ${req.originalUrl}`, req.body)
+//     next()
+// })
 
 app.use(recommendRoute);
 
@@ -55,11 +55,6 @@ app.use((err, req, res, next) =>{
     res.sendFile(path.join(__dirname, '../public/500.html'))
 })
 
-// test AJAX route
-app.post("/api/users", (req, res) => {
-    console.log(req);
-    res.send("hello world")
-});
 
 
 // Have express listen to a port.

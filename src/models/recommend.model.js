@@ -6,10 +6,11 @@ const RecommendSchema = new Schema({
       name: String,
       yelp: String,
       description: String,
-      email: {
-          type: String,
-          required: true
-      },
+      email: String,
+      // email: {
+      //     type: String,
+      //     required: true
+      // },
       latitude: Number,
       longitude: Number
     });

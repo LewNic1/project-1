@@ -8,14 +8,14 @@ $(document).ready(function(){
   console.log('Doc Ready');
 
   // Front end AJAX
-  $('.sign-up-form').on('submit', function(e) {
+  $('.theForm').on('submit', function(e) {
     e.preventDefault();
 
-    let formData = $(this).serialize();
+    let formData = $(".theForm").serialize();
 
     $.ajax({
       method: "POST",
-      url: '/api/users',
+      url: '/recommend',
       data: formData,
       success: function(res) {
         console.log("success!!", response)

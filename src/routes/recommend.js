@@ -17,6 +17,11 @@ router.post('/recommend', (req, res)=>{
     // }
 
     let model = new RecommendModel(req.body) //<--- mongoose will take to the mogodriver and tell it to take the details the user posted and validate it via the recommend model and save it to the database. 
+    
+    console.log("//////////////////////////////")
+    console.log(model)
+    console.log("//////////////////////////////")
+    
     model.save()
         .then(doc =>{ //<-----This is a promise and promises handle error and catch.
             if (!doc || doc.length === 0){
