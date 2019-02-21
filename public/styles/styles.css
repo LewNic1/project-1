@@ -23,7 +23,7 @@ nav > h1{
   margin: 10px;
 }
 
-#recBy {
+#recList {
   height: 600px;
   overflow-y: scroll;
 }
@@ -156,3 +156,10 @@ button {
 .show {display:block;}
 
 /* ---------------Style for Dropdown Ends----------------- */
+
+/* Style For Recommendation List and Items */
+.rec-item {
+  border: 1px solid white;
+  color: white;
+}
+

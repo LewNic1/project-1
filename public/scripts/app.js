@@ -21,19 +21,24 @@ $(document).ready(function(){
     });
   })
 
-  let $recDiv = $('#recBy');
+  let $recDiv = $('#recList');
   function loadRecommendations(json) {
     json.forEach((rec) => {
       $recDiv.append(
-        `<div>
-          <h3>${rec.name}</h3>
-          <h3>${rec.yelp}</h3>
-          <h3>${rec.description}</h3>
+        `<div class='rec-item'>
+          <div class='rec-details'>
+            <h4>${rec.name}</h4>
+            <h5>${rec.yelp}</h5>
+            <p>${rec.description}</p>
+          </div>
+          <div class='rec-photo'>
+          </div>
         </div>`
         );
+      
     });
   };
-  
+
   $.ajax({
     method: "GET",
     url: '/recommend',
