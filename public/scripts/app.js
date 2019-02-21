@@ -34,10 +34,6 @@ $(document).ready(function(){
     // more details for that place.
     searchBox.addListener('places_changed', function() {
       let places = searchBox.getPlaces();
-      console.log(places);
-      console.log(places[0].place_id);
-      console.log(places[0].geometry.location);
-      $('#place-id').val(`${places[0].place_id}`);
 
       if (places.length == 0) {
         return;
@@ -92,4 +88,5 @@ $(document).ready(function(){
     });
   }
   initAutocomplete();
+
 });
