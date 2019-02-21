@@ -4,18 +4,18 @@ const Schema = mongoose.Schema;
 
 const RecommendSchema = new Schema({
       name: String,
-      yelp: String,
+      placeId: String,
       description: String,
-      email: String,
-      // email: {
-      //     type: String,
-      //     required: true
-      // },
+      email: {
+          type: String,
+          required: true
+      },
       latitude: Number,
-      longitude: Number
+      longitude: Number,
+      author: String
     });
 
-      // models/author.js
+     
   const RecommendModel = mongoose.model('Recommend', RecommendSchema);
 
   module.exports = RecommendModel;

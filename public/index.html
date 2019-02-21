@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <!-- Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places"></script>
@@ -28,6 +28,7 @@
           <h1>Watchu Eatin</h1>
       </nav>
 
+      
       <main id="myMain">
 
         <section class= "mapRec">
@@ -41,10 +42,10 @@
                               <h2>Recommendation</h2>
                               <div class="column">
 
-                              <input type="text" id="name" placeholder="Your Name">
-                              <input type="text" id="email" placeholder="Email">
+                              <input type="text" id="name" name="author" placeholder="Your Name">
+                              <input type="text" id="email" name="email" placeholder="Email">
                               <input id="pac-input" placeholder="Recommend a place">
-                              <input type="text" id="place-id" placeholder="Id" style="display: none">
+                              <input type="text" id="place-id" name="restaurant" placeholder="Id" style="display: none">
 
                               <!-- <input type="text" id="yelp-link" placeholder="Yelp Link"> -->
                               </div>
@@ -53,7 +54,7 @@
                                 <textarea name="description" placeholder="Description"></textarea>
                               </div>
                               <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-                              <input type="submit" value="submit">
+                              <input type="submit" value="submit" class="btn">
           
                             </form>
                     </div>
@@ -63,7 +64,6 @@
         <section class="myRec">
           <div id="recBy">
             <h2>Recommendations by:</h2>
-
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Dropdown</button>
               <div id="myDropdown" class="dropdown-content">
@@ -101,32 +101,11 @@
                 <a href="#">Tristan</a>
               </div>
             </div>
-
-            </select>
           </div>
 
-
-          <div class=recTemplate>
-              <div class="recName">Nicolette</div>
-              <div class="recRest">Joe & The Juice</div>
-              <div class="recDes">Natural juice drinks and coffee. The Energizer drink is a great pick me up.</div>
+          <div id='recList'>
+            <!-- Loaded with code -->
           </div>
-
-          <div class=recTemplate2>
-            <div class="recName2">Nicolette</div>
-            <div class="recRest2">Sushirrito</div>
-            <div class="recDes2">A sushi burrito! Sumo Crunch is delicious.</div>
-        </div>
-
-        <div class=recTemplate3>
-          <div class="recName3">Nicolette</div>
-          <div class="recRest3">Out The Dough</div>
-          <div class="recDes3">For your sweet tooth! Cookie dough bar.</div>
-      </div>
-
-
-
-
         </section>
 
     </main>

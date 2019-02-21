@@ -1,3 +1,31 @@
+
+
+
+
+/* ---------------Style for landing.html Begins----------------- */
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for landing.html Ends----------------- */
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for Index.html Begins----------------- */
 nav > h1{
   margin-left: 10px;
 }
@@ -21,6 +49,16 @@ nav > h1{
   flex-direction: row-reverse;
   width: 50%;
   margin: 10px;
+}
+
+#recList {
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#myDropdown {
+  height: 300px;
+  overflow-y: scroll;
 }
 
 select{
@@ -84,8 +122,9 @@ textarea{
   width: 100%;
 }
 
-button {
+.btn {
   background-color: yellow;
+  width: 100%;
 }
 /*the form styling ends*/
 
@@ -148,28 +187,10 @@ button {
 /* ---------------Style for Dropdown Ends----------------- */
 
 
-
-/* ---------------Style for recommendation display template starts----------------- */
-
-.recTemplet {
-  display: flex;
-  flex-direction: row;
-  width: 30px;
-}
-
-.recTemplet2 {
-  display: flex;
-  flex-direction: row;
-  width: 30px;
-}
-
-.recTemplet3 {
-  display: flex;
-  flex-direction: row;
-  width: 30px;
-}
-
-
-
-
 /* ---------------Style for recommendation display template ends----------------- */
+/* Style For Recommendation List and Items */
+.rec-item {
+  border: 1px solid white;
+  color: white;
+}
+
