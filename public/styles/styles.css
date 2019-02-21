@@ -1,8 +1,91 @@
-.container {
-  padding-bottom: 50px;
+nav > h1{
+  margin-left: 10px;
+}
+#myMain{
+  background-color: navajowhite;
+  /* margin-top: 50px; */
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  /* margin: 70px 10px 10px 10px; */
 }
 
-#map {
-  height: 600px;
-  margin-top: 20px;
+.mapRec{background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
+.myRec{
+  background-color: purple;
+  width: 50%;
+  margin: 10px;
+}
+
+.map-sub{
+  width: 100%
+}
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/*Form styling begins*/
+.recommend{
+  /* background-color: #28777a; */
+}
+.recommend-sub{
+  /*background-color: orange;*/
+  background-color: #4682B4;
+  width: 100%;;
+   margin: 10px 0px 10px 0px;
+}
+
+.theForm {
+  background-color: #4682B4;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px 0px 10px 0px;
+}
+
+ h2{
+  font-size: 20px;
+  text-align: center;
+}
+
+/* []I need this to flex
+to a column when squeezed*/
+.column {
+  align-items:center;
+/*    background-color: black;*/
+  display: flex;
+
+  flex-wrap: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 49%;
+}
+
+textarea{
+  text-align: left;
+  /*align-self: center;*/
+  max-height: 3em;
+  width: 100%;
+}
+
+button {
+  background-color: yellow;
+}
+/*the form styling ends*/
+
+/* .container {
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+} */
