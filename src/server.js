@@ -55,13 +55,16 @@ app.use((err, req, res, next) =>{
     res.sendFile(path.join(__dirname, '../public/500.html'))
 })
 
-
+// test AJAX route
+app.post("/api/users", (req, res) => {
+    console.log(req);
+    res.send("hello world")
+});
 
 
 // Have express listen to a port.
 //(**The Port value is defined in the command line before starting the project.**)
 const PORT = process.env.PORT || 4000 //changed port to 4000 to connect to Heroku
-
 
 //Express is listening to a port on the machine. This port is 
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`))

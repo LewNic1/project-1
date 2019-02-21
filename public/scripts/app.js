@@ -7,6 +7,25 @@ $(document).ready(function(){
 
   console.log('Doc Ready');
 
+  // Front end AJAX
+  $('.sign-up-form').on('submit', function(e) {
+    e.preventDefault();
+
+    let formData = $(this).serialize();
+
+    $.ajax({
+      method: "POST",
+      url: '/api/users',
+      data: formData,
+      success: function(res) {
+        console.log("success!!", response)
+      },
+      error: function(err) {
+        console.log("uh oh, something went wrong", err);
+      }
+    });
+  })
+
   function initAutocomplete() {
     let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.7909, lng: -122.4013},
