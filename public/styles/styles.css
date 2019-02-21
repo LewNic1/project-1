@@ -17,8 +17,14 @@ nav > h1{
 }
 .myRec{
   background-color: purple;
+  display: flex;
+  flex-direction: row-reverse;
   width: 50%;
   margin: 10px;
+}
+
+select{
+  align-self: right;
 }
 
 .map-sub{
@@ -31,9 +37,9 @@ nav > h1{
 }
 
 /*Form styling begins*/
-.recommend{
-  /* background-color: #28777a; */
-}
+/* .recommend{
+  background-color: #28777a;
+} */
 .recommend-sub{
   /*background-color: orange;*/
   background-color: #4682B4;
