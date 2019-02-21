@@ -1,16 +1,17 @@
-let RecommendModel = require('../models/recommend.model');
 let express = require('express')
 let router = express.Router()
+let db = require('../models');
+let RecommendModel = db.RecommendModel;
 
 // create a new recommend
 // Post Localhost:300/recommend
-router.post('/recommend', (req, res)=>{
+router.post('/recommend', (req, res) => {
     if (!req.body){
         return res.status(400).send('Request body is missing.')
     }
-//////////////////////////////////////
-////The  expected data on come in/////
-//////////////////////////////////////
+    //////////////////////////////////////
+    ////The  expected data on come in/////
+    //////////////////////////////////////
     // let user ={
     //     name: "Firstname Lastname"
     //     email: 'email@gmail.com'
@@ -23,32 +24,33 @@ router.post('/recommend', (req, res)=>{
     console.log("//////////////////////////////")
     
     model.save()
-        .then(doc =>{ //<-----This is a promise and promises handle error and catch.
+    //     if(err) return console.log(err);
+    //     console.log(user);
+    //     res.json(user);
+    // })
+        .then(doc => { //<-----This is a promise and promises handle error and catch.
+            console.log(doc);
             if (!doc || doc.length === 0){
                 return res.status(500).send(doc)
             }
             res.status(201).send(doc)
         })
-        .catch(err =>{
+        .catch(err => {
             res.status(500).json(err)
-        })
-})
+        });
+});
 
 //-------------------Get Request-----------------------
-router.get('/recommend',(req, res) => {
+router.get('/recommend', (req, res) => {
     if (!req.query.email){
         return res.status(400).send('Missing URL parameter: email')
     }
 
-    RecommendModel.findOne({
-        email: req.query.email
-    })
-    .then(doc =>{
-        res.json(doc)
-    })
-    .catch(err =>{
-        res.status(500).json(err)
-    })
+    RecommendModel.find({}, (err, data) => {
+        if ( err ) { throw err }
+
+        res.json(data);
+    });
 })
 
 
@@ -57,7 +59,7 @@ router.put('/recommend', (req, res) =>{
     if (!req.query.email){
         return res.status(400).send('Missing URL parameter: email')
     }
-
+    
     RecommendModel.findOneAndUpdate({
         email: req.query.email
     }, req.body, {

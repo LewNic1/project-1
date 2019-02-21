@@ -6,7 +6,8 @@ $(document).ready(function(){
   // Front end AJAX
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
-    let formData = $(".theForm").serialize();
+    let formData = $(this).serialize();
+    console.log(formData);
     $.ajax({
       method: "POST",
       url: '/recommend',
