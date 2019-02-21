@@ -1,18 +1,12 @@
 //Here is where the map ajax will go
-
 let recommendation_list = [];
-
 // - Setting up APIs
 $(document).ready(function(){
-
   console.log('Doc Ready');
-
   // Front end AJAX
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
-
     let formData = $(".theForm").serialize();
-
     $.ajax({
       method: "POST",
       url: '/recommend',
