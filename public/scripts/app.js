@@ -37,6 +37,7 @@ $(document).ready(function(){
       console.log(places);
       console.log(places[0].place_id);
       console.log(places[0].geometry.location);
+      $('#place-id').val(`${places[0].place_id}`);
 
       if (places.length == 0) {
         return;
