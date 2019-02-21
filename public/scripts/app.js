@@ -57,6 +57,13 @@ $(document).ready(function(){
           console.log("Returned place contains no geometry");
           return;
         }
+        
+        let recPlaceId = place.place_id;
+        console.log(recPlaceId);
+        let recLatitude = place.geometry.location.lat();
+        console.log(recLatitude);
+        let recLongitude = place.geometry.location.lng();
+        console.log(recLongitude);
 
         let icon = {
           url: place.icon, // update with our own
