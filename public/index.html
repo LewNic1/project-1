@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- Google Maps API -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places"></script>
 
     <!-- Custom JS -->
     <script src="scripts/config.js"></script>
@@ -33,6 +33,7 @@
         <section class= "mapRec">
           <div class="map-sub">
               <span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>    <div id="map"></div>
+              <input id="pac-input" placeholder="Recommend a place">
           </div>
 
                 <!-- Recommendation Sub section Begins -->
@@ -42,6 +43,7 @@
                               <div class="column">
                               <input type="text" id="name" placeholder="Your Name">
                               <input type="text" id="email" placeholder="Email">
+                              <input type="text" id="place-id" placeholder="Id">
                               <!-- <input type="text" id="yelp-link" placeholder="Yelp Link"> -->
                               </div>
           
@@ -57,7 +59,7 @@
         </section>
 
         <section class="myRec">
-          <div class="">
+          <div id="recBy">
             <h2>Recommendations by:</h2>
             <select id="myList" onchange="favsports()">
               <option>Nicollete</option>
