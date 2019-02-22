@@ -36,11 +36,14 @@
                             <form class="theForm" method="POST" action="/post">
                               <h2>Recommendation</h2>
                               <div class="column">
-                              <input type="text" id="name" name="author" placeholder="Your Name">
-                              <input type="text" id="email" name="email" placeholder="Email">
-                              <input id="pac-input" placeholder="Recommend a place">
-                              <input type="text" id="place-id" name="restaurant" placeholder="Id" style="display: none">
-                              <!-- <input type="text" id="yelp-link" placeholder="Yelp Link"> -->
+                                <input type="text" id="name" name="author" placeholder="Your Name">
+                                <input type="text" id="email" name="email" placeholder="Email">
+                                <input id="pac-input" placeholder="Recommend a place">
+                                <!-- Bryant: Form is using serialize(), cannot append values. Creating hidden input fields to be passed with POST method. Values input via code when google place search is activated. -->
+                                <input type="text" id="place-id" name="placeId" style="display: none">
+                                <input type="text" id="place-name" name="name" style="display: none">
+                                <input type="text" id="place-latitude" name="latitude" style="display: none">
+                                <input type="text" id="place-longitude" name="longitude" style="display: none">
                               </div>
           
                               <div id="description">
