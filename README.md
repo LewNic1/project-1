@@ -10,9 +10,17 @@ For this project, we utilized the information we learned from the last several w
 
 ## Objectives
 
-- Use recommendation form to collect student's restaurant recommendations.
+- Use form to collect student's restaurant recommendations.
 - Use AJAX to grab Google Places API and embed restaurants on map.
-- Display restaurant information and its recommendations. 
+- Display restaurant information and its recommendations.
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- MongoDB
 
 ## Watchu Eatin
 
@@ -22,49 +30,47 @@ There was no starter code. We referenced past lessons to piece together our idea
 
 Here's a screenshot of what the final product looks like:
 
-![whatchueatin](https://cloud.githubusercontent.com/assets/4304660/25784846/9905f872-3339-11e7-92c5-30775b6bb8f4.png)
+![whatchueatin](https://imgur.com/3mzzaI6) 
 
 ## Deliverable
 
 Our goal was to:
--Connect our frontend with our backend.
--Display location of recommended restaurant on a map.
--Display information about the restaurant. 
--Create a database to save restaurant information.
-
-*******INSERT SCREENSHOT HERE*****************
+- Connect our frontend with our backend.
+- Display location of recommended restaurant on a map.
+- Display information about the restaurant. 
+- Create a database to save restaurant information.
 
 #### Part 1. Rendering Data
 We familiarized ourselves with the dataset from Google Places,[https://cloud.google.com/maps-platform/places/].
 
 + We thought about how we would:
--structure the data
--grab its title
--grab its coordinates
+- structure the data
+- grab its title
+- grab its coordinates
 
 #### Pain Point
--Staying optisimistic, balancing optimism with reality. 
--External API's only as good as the documentation. Are always a risk.
+- Staying optisimistic, balancing optimism with reality. 
+- External API's only as good as the documentation. Are always a risk.
 
 #### Lessons Learned
 
 Nicolette:
--Focus on MVP, check direction of work constantly.
--File structure is key
--Communication is fundamental
+- Focus on MVP, check direction of work constantly.
+- File structure is key
+- Communication is fundamental
 
 Jonathan:
--Delegation
--Communication
--Personal accountabilty is at play when working on a team to produce a product.
--None of these components are mutually exclusive.
+- Delegation
+- Communication
+- Personal accountabilty is at play when working on a team to produce a product.
+- None of these components are mutually exclusive.
 
 Bryant:
--Better understanding of task dependencies.
--API's are always a risk
--File structure must be rock solid to build off of. 
+- Better understanding of task dependencies.
+- API's are always a risk
+- File structure must be rock solid to build off of. 
 
 Darnell:
--Simplicity is key, the real MVP.
--Communication is important; to understand what tasks to complete and when to complete it.
--Prioritizing tasks based on level of importance.
+- Simplicity is key, the real MVP.
+- Communication is important; to understand what tasks to complete and when to complete it.
+- Prioritizing tasks based on level of importance.
