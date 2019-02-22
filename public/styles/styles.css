@@ -164,7 +164,7 @@ textarea{
 /* ---------------Style for Dropdown Ends----------------- */
 
 
-/* ---------------Style for recommendation display template ends----------------- */
+/* ---------------Style for Recommendations ----------------- */
 
 #rec-list{
   background-color: #cdc8b1;
@@ -188,7 +188,6 @@ textarea{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* background-color: black; */
 }
 
 .rec-options a {
