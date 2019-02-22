@@ -28,7 +28,11 @@ Our goal is to:
 
 Here's a screenshot of what the final product looks like:
 
-![whatchueatin](https://cloud.githubusercontent.com/assets/4304660/25784846/9905f872-3339-11e7-92c5-30775b6bb8f4.png)
+![whatchueatin](https://imgur.com/tv14sDc)
+
+![whatchueatin](https://imgur.com/3mzzaI6)
+
+
 
 
 

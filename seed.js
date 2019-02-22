@@ -20,7 +20,7 @@ let recommendation_list = [
         author: 'Nicolette'
     },
     { 
-        name: "Curry Up Now Food Truck",
+        name: "Curry Up Now",
         placeId: "https://www.yelp.com/biz/curry-up-now-food-truck-san-francisco",
         description: "This is a fantastic restaurant.",
         email: "south@gmail.com",
