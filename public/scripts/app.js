@@ -26,7 +26,7 @@ $(document).ready(function(){
 
   $.ajax({
     method: "GET",
-    url: '/recommend',
+    url: '/dashboard/recommend',
     success: function(res) {
       console.log("Found it", res);
       loadRecommendations(res);

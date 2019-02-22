@@ -4,49 +4,38 @@
     <meta charset="utf-8">
     <!-- set viewport to device width to allow responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="../https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/styles.css">
-
+    <link rel="stylesheet" href="../styles/styles.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
     <!-- Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places"></script>
-
     <!-- Custom JS -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/app.js"></script>
-
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/app.js"></script>
     <title>Watchu Eatin</title>
   </head>
   <body>
       <nav>
           <h1>Watchu Eatin</h1>
       </nav>
-
       
       <main id="myMain">
-
         <section class= "mapRec">
           <div class="map-sub">
               <span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>    <div id="map"></div>
           </div>
-
                 <!-- Recommendation Sub section Begins -->
                     <div class="recommend-sub">
                             <form class="theForm" method="POST" action="/post">
                               <h2>Recommendation</h2>
                               <div class="column">
-
-                              <input type="text" id="name" name="name" placeholder="Your Name">
+                              <input type="text" id="name" name="author" placeholder="Your Name">
                               <input type="text" id="email" name="email" placeholder="Email">
                               <input id="pac-input" placeholder="Recommend a place">
                               <input type="text" id="place-id" name="restaurant" placeholder="Id" style="display: none">
-
                               <!-- <input type="text" id="yelp-link" placeholder="Yelp Link"> -->
                               </div>
           
@@ -60,7 +49,6 @@
                     </div>
                 <!-- Recommendation Sub section Ends -->
         </section>
-
         <section class="myRec">
           <div id="recBy">
             <h2>Recommendations by:</h2>
@@ -106,8 +94,6 @@
             <!-- Loaded with code -->
           </div>
         </section>
-
     </main>
-
   </body>
 </html>

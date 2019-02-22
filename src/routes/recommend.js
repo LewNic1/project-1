@@ -1,18 +1,17 @@
-
 let express = require('express')
 let router = express.Router()
 let db = require('../models')
 let RecommendModel = db.RecommendModel
 
 // create a new recommend
-// Post Localhost:300/recommend
-router.post('/recommend', (req, res)=>{
+// Post Localhost:300/dashboard/recommend
+router.post('/dashboard/recommend', (req, res) => {
     if (!req.body){
         return res.status(400).send('Request body is missing.')
     }
-//////////////////////////////////////
-////The  expected data on come in/////
-//////////////////////////////////////
+    //////////////////////////////////////
+    ////The  expected data on come in/////
+    //////////////////////////////////////
     // let user ={
     //     name: "Firstname Lastname"
     //     email: 'email@gmail.com'
@@ -20,19 +19,24 @@ router.post('/recommend', (req, res)=>{
 
     let model = new RecommendModel(req.body) //<--- mongoose will take to the mogodriver and tell it to take the details the user posted and validate it via the recommend model and save it to the database. 
     model.save()
-        .then(doc =>{ //<-----This is a promise and promises handle error and catch.
+    //     if(err) return console.log(err);
+    //     console.log(user);
+    //     res.json(user);
+    // })
+        .then(doc => { //<-----This is a promise and promises handle error and catch.
+            console.log(doc);
             if (!doc || doc.length === 0){
                 return res.status(500).send(doc)
             }
             res.status(201).send(doc)
         })
-        .catch(err =>{
+        .catch(err => {
             res.status(500).json(err)
-        })
-})
+        });
+});
 
 //-------------------Get Request-----------------------
-router.get('/recommend',(req, res) => {
+router.get('/dashboard/recommend',(req, res) => {
     console.log('route triggered')
     RecommendModel.find()
     .exec((err,data)=>{
@@ -43,9 +47,9 @@ router.get('/recommend',(req, res) => {
     })
 })
 
-router.get('/recommend/:name',(req, res) => {
+router.get('/dashboard/recommend/:author',(req, res) => {
     console.log('route triggered')
-    RecommendModel.find()
+    RecommendModel.find({author: req.params.author})
     .exec((err,data)=>{
         if (err){
             res.send(err)
@@ -55,7 +59,7 @@ router.get('/recommend/:name',(req, res) => {
 })
 
 //-------------------Update Request-----------------------
-router.put('/recommend', (req, res) =>{
+router.put('/dashboard/recommend', (req, res) =>{
     if (!req.query.email){
         return res.status(400).send('Missing URL parameter: email')
     }
@@ -75,7 +79,7 @@ router.put('/recommend', (req, res) =>{
 })
 
 //-------------------Delete Request-----------------------
-router.delete('/recommend', (req, res) =>{
+router.delete('/dashboard/recommend', (req, res) =>{
     //calling in to recommend and make sure the email exist
     if (!req.query.email){
         return res.status(400).send('Missing URL parameter: email')
@@ -93,4 +97,4 @@ router.delete('/recommend', (req, res) =>{
 })
 
 
-module.exports = router 
+module.exports = router

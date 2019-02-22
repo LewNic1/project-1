@@ -18,3 +18,6 @@ const setVideoDimensions = () => {
 };
 window.onresize = setVideoDimensions;
 setVideoDimensions();
+
+//ajax call to check password
+// on success res.redirect('/dashboard')
