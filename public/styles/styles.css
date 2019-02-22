@@ -30,7 +30,7 @@ nav > h1{
   margin-left: 10px;
 }
 #myMain{
-  background-color: navajowhite;
+  /* background-color: navajowhite; */
   /* margin-top: 50px; */
   display: flex;
   justify-content: space-between;
@@ -38,13 +38,14 @@ nav > h1{
   /* margin: 70px 10px 10px 10px; */
 }
 
-.mapRec{background-color: black;
+.mapRec{
+  /* background-color: black; */
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 .myRec{
-  background-color: purple;
+  /* background-color: purple; */
   display: flex;
   flex-direction: row-reverse;
   width: 50%;
@@ -186,6 +187,8 @@ textarea{
 
 /* ---------------Style for Dropdown Ends----------------- */
 
+
+/* ---------------Style for recommendation display template ends----------------- */
 /* Style For Recommendation List and Items */
 .rec-item {
   border: 1px solid white;

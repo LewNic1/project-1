@@ -3,6 +3,7 @@ let recommendation_list = [];
 // - Setting up APIs
 $(document).ready(function(){
   console.log('Doc Ready');
+  
   // Front end AJAX
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
@@ -26,7 +27,7 @@ $(document).ready(function(){
 
   $.ajax({
     method: "GET",
-    url: '/recommend',
+    url: '/dashboard/recommend',
     success: function(res) {
       console.log("Found it", res);
       loadRecommendations(res);
