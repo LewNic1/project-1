@@ -52,7 +52,7 @@ nav > h1{
   margin: 10px;
 }
 
-#recList {
+#rec-list {
   height: 600px;
   overflow-y: scroll;
 }

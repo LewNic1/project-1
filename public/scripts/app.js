@@ -4,10 +4,24 @@ let recommendation_list = [];
 // - Setting up APIs
 $(document).ready(function(){
   console.log('Doc Ready');
-  let $recDiv = $('#recList');
+  let $recDiv = $('#rec-list');
   let recMarker;
+  
   // Front end AJAX
+  // Ajax GET
+  $.ajax({
+    method: "GET",
+    url: '/dashboard/recommend',
+    success: function(res) {
+      console.log("Found it", res);
+      loadRecommendations(res);
+    },
+    error: function(err) {
+      console.log("uh oh, something went wrong", err);
+    }
+  });
 
+  // Ajax POST
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
     let formData = $(this).serialize();
@@ -26,16 +40,24 @@ $(document).ready(function(){
     });
   });
 
-  $.ajax({
-    method: "GET",
-    url: '/dashboard/recommend',
-    success: function(res) {
-      console.log("Found it", res);
-      loadRecommendations(res);
-    },
-    error: function(err) {
-      console.log("uh oh, something went wrong", err);
-    }
+  // Ajax PUT
+  $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
+    e.preventDefault;
+    let recItem = $(this).parent().parent().attr('id');
+    
+    // .children('.rec-details');
+    console.log(`Edit Pressed on ${recItem}`);
+    // let recItemDetails = recItem.parent().siblings('.rec-details');
+    // console.log(recItemDetails);
+    // recItem.empty();
+    // console.log(recItem.parent().siblings('.rec-details').html());
+    // recItemDetails.append(
+    //   `<p>Email Authorization Required</p>
+    //   <input type="text" id="email" name="email" placeholder="Email">
+    //   <input type="submit" value="Submit" class="btn">`
+    // );
+
+
   });
 
 
@@ -157,6 +179,10 @@ $(document).ready(function(){
 
   function loadRecommendations(json) {
     json.forEach((rec)=> {createRecItem(rec)});
+    };
+
+  function clearRecommendations() {
+    $recDiv.empty();
     };
 
 }); // End of Doc Ready
