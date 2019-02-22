@@ -40,25 +40,33 @@ $(document).ready(function(){
     });
   });
 
+  // Edit Rec - Email validation version
+  // $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   let recItem = $(this).closest('.rec-item');
+  //   let recItemId = recItem.attr('id');
+  //   recItem.empty();
+  //   recItem.append(
+  //     `<div class="auth-box">
+  //     <input class="auth-input" type="text" id="email" name="email" placeholder="Enter email to edit">
+  //     <input type="submit" value="Authorize" class="btn auth-btn">
+  //     </div>`
+  //     ); 
+  //     // Needs Ajax get by ID, lookup and validate email, if true, return editable desc
+  // });
   // Ajax PUT
+
+  // Edit Rec - No email validation version
   $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
-    e.preventDefault;
-    let recItem = $(this).parent().parent().attr('id');
+    e.preventDefault();
+    e.stopPropagation();
+    let recItem = $(this).closest('.rec-item');
+    let recItemId = recItem.attr('id');
+    let prevRecItemDesc = recItem.find('.rec-details h5').text();
     
-    // .children('.rec-details');
-    console.log(`Edit Pressed on ${recItem}`);
-    // let recItemDetails = recItem.parent().siblings('.rec-details');
-    // console.log(recItemDetails);
-    // recItem.empty();
-    // console.log(recItem.parent().siblings('.rec-details').html());
-    // recItemDetails.append(
-    //   `<p>Email Authorization Required</p>
-    //   <input type="text" id="email" name="email" placeholder="Email">
-    //   <input type="submit" value="Submit" class="btn">`
-    // );
-
-
   });
+
 
 
 

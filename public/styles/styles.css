@@ -202,3 +202,25 @@ textarea{
 .rec-options a:hover {
   color: grey;
 }
+
+/* Style for email authentication on edit/delete */
+
+.auth-box {
+  padding: 8px;
+}
+
+.auth-btn {
+  color: black;
+}
+
+.auth-input {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.auth-input::placeholder {
+  color: red;
+  text-align: center;
+}
