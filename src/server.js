@@ -17,6 +17,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
+const db = require('./models');
 
 //-------------------Mongoose Connection---------------------------------
 // mongoose.connect("mongodb://localhost/wce-app", { useNewUrlParser: true });
@@ -66,7 +67,21 @@ app.get('/', (req,res)=>{
 //     res.sendFile(path.join(__dirname, '../public/500.html'))
 // })
 
-
+app.post('/validate', (req,res)=>{
+    let formPassword = req.body.password
+    console.log(formPassword)
+    db.GroupModel.findOne({password: formPassword}, (err, foundGroup)=>{
+        if (err){
+            console.log(err)
+        }
+        if (foundGroup === null) {
+            res.send(false)
+        } else {
+            res.send(true)
+        }
+    })
+    
+})
 
 
 

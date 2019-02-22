@@ -20,7 +20,7 @@ let recommendation_list = [
         author: 'Nicolette'
     },
     { 
-        name: "Curry Up Now Food Truck",
+        name: "Curry Up Now",
         placeId: "https://www.yelp.com/biz/curry-up-now-food-truck-san-francisco",
         description: "This is a fantastic restaurant.",
         email: "south@gmail.com",
@@ -74,6 +74,19 @@ let recommendation_list = [
         author: 'Darnell'
      }
    ];
+
+   let group_list = [{
+    name: "WDI 51", 
+    password: "EasyPeazy51",
+   }]
+
+   db.GroupModel.remove({}, (err, groups) =>{
+    console.log('removed all groups');
+    db.GroupModel.create(group_list, (err, group) =>{
+        if (err) {throw err}
+        console.log(group);
+    });
+    });
 
 db.RecommendModel.remove({}, (err, authors) =>{
     console.log('removed all authors');

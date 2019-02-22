@@ -1,13 +1,12 @@
-//Here is where the map ajax will go
 let recommendation_list = [];
 let allRecMarkers = [];
-// - Setting up APIs
+
 $(document).ready(function(){
   console.log('Doc Ready');
   let $recDiv = $('#rec-list');
   let recMarker;
 
-  // Ajax GET
+  // ------------------------------------ Ajax GET -------------------------------
   $.ajax({
     method: "GET",
     url: '/dashboard/recommend',
@@ -35,7 +34,7 @@ $(document).ready(function(){
       });
   };
 
-  // Ajax POST
+  // ----------------------------- AJAX POST ------------------------------------
   $('.theForm').on('submit', function(e) {
     e.preventDefault();
     let formData = $(this).serialize();
@@ -54,24 +53,7 @@ $(document).ready(function(){
     });
   });
 
-  // Edit Rec - Email validation version
-  // $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   let recItem = $(this).closest('.rec-item');
-  //   let recItemId = recItem.attr('id');
-  //   recItem.empty();
-  //   recItem.append(
-  //     `<div class="auth-box">
-  //     <input class="auth-input" type="text" id="email" name="email" placeholder="Enter email to edit">
-  //     <input type="submit" value="Authorize" class="btn auth-btn">
-  //     </div>`
-  //     ); 
-  //     // Needs Ajax get by ID, lookup and validate email, if true, return editable desc
-  // });
-
-  // Ajax PUT
-  // Edit Rec - No email validation version
+  // ------------------------------ AJAX PUT Part 1 -------------------------------------
   $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -89,11 +71,11 @@ $(document).ready(function(){
         <input type="text" value='${currentRecItemAuthor}' style='color: black'></input>
       </div>
       <div class="rec-options">
-        <a href="" class='rec-edit-mode-save-btn'><i class="far fa-save"></i></a>
+        <a href="" class='rec-edit-mode-save-btn'><i class="fas fa-save fa-2x"></i></a>
       </div>`
     );
   });
-
+  // ------------------------------ AJAX PUT Part 2 ---------------------------------
   $recDiv.on('click','.rec-item .rec-options .rec-edit-mode-save-btn', function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -105,8 +87,6 @@ $(document).ready(function(){
       description: newRecItemDesc,
       author: newRecItemAuthor
     };
-    console.log(updatedData);
-    console.log(`Heard edit on ${recItemId}`);
     $.ajax({
       method: 'PUT',
       url: `/dashboard/recommend/${recItemId}`,
@@ -117,7 +97,7 @@ $(document).ready(function(){
     });
   });
 
-  // Delete Rec - No email validation version
+// ------------------------------ AJAX DELETE ---------------------------------
   $recDiv.on('click','.rec-item .rec-options .rec-delete', function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -134,7 +114,35 @@ $(document).ready(function(){
 
 
 
-// Google Maps Functions
+// --------------------------- Dropdown Event Listener ----------------------
+
+
+  // Attach a directly bound event handler
+$( "#myDropdown a" ).on( "click", function( event ) {
+  event.preventDefault();
+  console.log( $( this ).text() );
+
+  var str1 = '/dashboard/recommend/'
+  var str2 = ($( this ).text());
+  var student = str1.concat(str2);
+  console.log(student);
+
+  $.ajax({
+    method: "GET",
+    url: student,
+    success: function(res) {
+      console.log("Found it", res);
+      clearRecommendations();
+      loadRecommendations(res);
+    },
+    error: function(err) {
+      console.log("uh oh, something went wrong", err);
+    }
+  })
+});
+
+
+// ------------------ Google Maps Functions ------------------------
 
   let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 37.7909, lng: -122.4013},
@@ -159,7 +167,7 @@ $(document).ready(function(){
 
   let markers = [];
 
-// Google Maps Search Behavior
+// ------------------- Google Maps Search Behavior --------------------------
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
@@ -216,12 +224,12 @@ $(document).ready(function(){
       }
     });
     map.fitBounds(bounds);
-  }); // End of Google Search Box functioanlity
+  }); // End of Google Search Box functionality
   
-// Functions used in AJAX calls
+// --------------- Functions used in AJAX calls -----------------------------
 
   function createRecItem(rec) {
-    $recDiv.append(
+    $recDiv.prepend(
       `<div class='rec-item' id='${rec._id}'>
         <div class='rec-details'>
           <h4>${rec.name}</h4>
@@ -229,8 +237,8 @@ $(document).ready(function(){
           <p>${rec.author}</p>
         </div>
         <div class='rec-options'>
-          <a href="" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
-          <a href="" class='rec-delete'><i class="fas fa-trash-alt"></i></a>
+          <a href="" class='rec-edit'><i class="fas fa-pencil-alt fa-lg"></i></a>
+          <a href="" class='rec-delete'><i class="fas fa-trash-alt fa-lg"></i></a>
         </div>
       </div>`
       );
@@ -294,6 +302,7 @@ $(document).ready(function(){
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+  
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -312,18 +321,3 @@ window.onclick = function(event) {
 
 
 //------------------drop down functionality ends here------------------------------- 
-
-
-
-//---------------landing.html functionality Begins----------------- 
-
-
-
-
-
-
-
-
-
-
-// ---------------landing.html functionality Ends----------------- 
