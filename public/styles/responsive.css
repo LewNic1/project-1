@@ -1,0 +1,263 @@
+@media only screen and (max-width: 440px) {
+
+
+
+
+/* ---------------Style for landing.html Begins----------------- */
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for landing.html Ends----------------- */
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------Style for Index.html Begins----------------- */
+*{
+    font-family: 'Montserrat', sans-serif;
+  
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 20px 0px 10px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  
+  }
+  nav > h1{
+    color: #b8860b;
+  }
+  #myMain{
+    /* background-color: navajowhite; */
+    /* margin-top: 50px; */
+    display: flex;
+    justify-content: space-between;
+    margin: 5px ;
+    /* margin: 70px 10px 10px 10px; */
+  }
+  
+  
+  .mapRec{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .myRec{
+    background-color: #708090;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+    margin: 10px;
+  }
+  
+  #recList {
+    height: 600px;
+    overflow-y: scroll;
+  }
+  
+  #myDropdown {
+    height: 300px;
+    overflow-y: scroll;
+  }
+  
+  select{
+    align-self: right;
+  }
+  
+  .map-sub{
+    width: 100%
+  }
+  #map {
+    height: 400px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /*Form styling begins*/
+  .recommend{
+    background-color: #28777a;
+    /* width: 100%; */
+    
+  }
+  .recommend-sub{
+    /*background-color: orange;*/
+    background-color: #ffdab9;
+    width: 100%;;
+    height: 100%;
+    margin: 10px 0px 10px 0px;
+    text-transform: uppercase;
+  }
+  
+  .theForm {
+    background-color: #ffdab9;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 0px 0px 0px;
+  }
+  
+   h2{
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  /* []I need this to flex
+  to a column when squeezed*/
+  .column {
+    align-items:center;
+  /*    background-color: black;*/
+    display: flex;
+    flex-wrap: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 32%;
+    text-transform: capitalize;
+  }
+  
+  textarea{
+    text-align: left;
+    /*align-self: center;*/
+    max-height: 3em;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  
+  .btn {
+    background-color: #cdc8b1;
+    width: 100%;
+    color: white;
+  }
+  /*the form styling ends*/
+  
+  /* .container {
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+  } */
+  
+  
+  
+  /* ---------------Style for Dropdown Begins----------------- */
+  
+  /* Dropdown Button */
+  .dropbtn {
+    background-color: #ffdab9;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color:  #3498DB;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+  
+  /* ---------------Style for Dropdown Ends----------------- */
+  
+  
+  /* ---------------Style for recommendation display template ends----------------- */
+  
+  
+  
+  /* Style For Recommendation List and Items */
+  #recList{
+    background-color: #cdc8b1;
+    width: 100%;
+    min-height: 100%;
+    /* align-content: left; */
+  }
+  .rec-item {
+    /* background-color: blue; */
+    justify-content: space-around;
+    display: flex;
+    border: 1px solid white;
+    color: white;
+  }
+  
+  .rec-details{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .rec-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: black; */
+  }
+  
+  .rec-options a {
+    color: white;
+  }
+  
+  .rec-options a:hover {
+    color: grey;
+  }
+  
+  
+  /* -------------------Style for Rec-item begins----------------------------- */
+  
+  
+  
+  
+  
+  
+  
+  }
