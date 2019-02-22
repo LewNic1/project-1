@@ -58,6 +58,21 @@ router.get('/dashboard/recommend/:author',(req, res) => {
     })
 })
 
+
+// JJ --> I'm creating a route in response to the login page's form password input
+// let url = 'http://localhost:4000/dashboard';
+// router.get('/??????access to input/value via val()??????????',(req, res) => {
+//     console.log('password route triggered')
+//     RecommendModel.find()
+//     .exec((err,data)=>{
+//         if (err){
+//             res.send(err)
+//         }
+//         // res.send(data)
+//         res.redirect(url);
+//     })
+// })
+
 //-------------------Update Request-----------------------
 router.put('/dashboard/recommend', (req, res) =>{
     if (!req.query.email){

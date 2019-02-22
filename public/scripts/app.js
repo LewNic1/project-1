@@ -183,9 +183,4 @@ window.onclick = function(event) {
 
 
 
-
-
-
-
-
 // ---------------landing.html functionality Ends----------------- 
