@@ -62,6 +62,7 @@ router.get('/dashboard/recommend/:author',(req, res) => {
 router.put('/dashboard/recommend/:id', (req, res) =>{
     console.log('update route accessed',req.params);
     let recId = req.params.id;
+    console.log('update route accessed with', req.body);
     RecommendModel.findOneAndUpdate({_id: recId},req.body,{new: true})
         .exec((err, updatedRec)=>{
             if (err) {

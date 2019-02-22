@@ -77,13 +77,44 @@ $(document).ready(function(){
     e.stopPropagation();
     let recItem = $(this).closest('.rec-item');
     let recItemId = recItem.attr('id');
-    let prevRecItemDesc = recItem.find('.rec-details h5').text();
+    console.log(`Entering edit mode on ${recItemId}`);
+    let recItemName = recItem.find('.rec-details h4').text();
+    let currentRecItemDesc = recItem.find('.rec-details h5').text();
+    let currentRecItemAuthor = recItem.find('.rec-details p').text();
+    recItem.empty();
+    recItem.append(`
+      <div class="rec-details">
+        <h4>${recItemName}</h4>
+        <textarea style='color: black'>${currentRecItemDesc}</textarea>
+        <input type="text" value='${currentRecItemAuthor}' style='color: black'></input>
+      </div>
+      <div class="rec-options">
+        <a href="" class='rec-edit-mode-save-btn'><i class="far fa-save"></i></a>
+      </div>`
+    );
+  });
+
+  $recDiv.on('click','.rec-item .rec-options .rec-edit-mode-save-btn', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let recItem = $(this).closest('.rec-item');
+    let recItemId = recItem.attr('id');
+    let newRecItemDesc = recItem.find('.rec-details textarea').val();
+    let newRecItemAuthor = recItem.find('.rec-details input').val();
+    let updatedData = {
+      description: newRecItemDesc,
+      author: newRecItemAuthor
+    };
+    console.log(updatedData);
+    console.log(`Heard edit on ${recItemId}`);
     $.ajax({
       method: 'PUT',
       url: `/dashboard/recommend/${recItemId}`,
+      dataType: 'json',
+      data: updatedData,
       success: updateRecSuccess,
       error: updateRecError
-      });
+    });
   });
 
   // Delete Rec - No email validation version
@@ -185,7 +216,7 @@ $(document).ready(function(){
       }
     });
     map.fitBounds(bounds);
-  }); // End of searchBox functioanlity
+  }); // End of Google Search Box functioanlity
   
 // Functions used in AJAX calls
 
@@ -198,8 +229,8 @@ $(document).ready(function(){
           <p>${rec.author}</p>
         </div>
         <div class='rec-options'>
-          <a href="#" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
-          <a href="#" class='rec-delete'><i class="fas fa-trash-alt"></i></a>
+          <a href="" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
+          <a href="" class='rec-delete'><i class="fas fa-trash-alt"></i></a>
         </div>
       </div>`
       );
@@ -216,7 +247,7 @@ $(document).ready(function(){
       infowindow.setContent(
         `<div>
         <strong>${rec.name}</strong><br> 
-        ${rec.description}<br>
+        "${rec.description}"<br>
         - ${rec.author}
         </div>`);
       infowindow.open(map, this);
@@ -236,6 +267,9 @@ $(document).ready(function(){
   
   function updateRecSuccess(json) {
     console.log(`Updated: ${json}`);
+    console.log(`New Description: ${json.description} New Author: ${json.author}`);
+    clearRecommendations();
+    getUpdatedRecList();
     };
 
   function updateRecError(json) {
