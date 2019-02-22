@@ -60,10 +60,11 @@ app.get('/', (req,res)=>{
 //     res.status(404).send('Darnell thinks you might be lost... Therefore you are lost. Sorry there are no maps -__-.')
 // })
 //Handler for Error 500
-app.use((err, req, res, next) =>{
-    console.error(err.stack)
-    res.sendFile(path.join(__dirname, '../public/500.html'))
-})
+
+// app.use((err, req, res, next) =>{
+//     console.error(err.stack)
+//     res.sendFile(path.join(__dirname, '../public/500.html'))
+// })
 
 
 

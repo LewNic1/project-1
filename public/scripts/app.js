@@ -1,13 +1,12 @@
 //Here is where the map ajax will go
 let recommendation_list = [];
-
+let allRecMarkers = [];
 // - Setting up APIs
 $(document).ready(function(){
   console.log('Doc Ready');
   let $recDiv = $('#rec-list');
   let recMarker;
-  
-  // Front end AJAX
+
   // Ajax GET
   $.ajax({
     method: "GET",
@@ -20,6 +19,21 @@ $(document).ready(function(){
       console.log("uh oh, something went wrong", err);
     }
   });
+
+  // Function to perform GET when we need to reflect DB changes
+  function getUpdatedRecList() {
+      $.ajax({
+        method: "GET",
+        url: '/dashboard/recommend',
+        success: function(res) {
+          console.log("Found it", res);
+          loadRecommendations(res);
+        },
+        error: function(err) {
+          console.log("uh oh, something went wrong", err);
+        }
+      });
+  };
 
   // Ajax POST
   $('.theForm').on('submit', function(e) {
@@ -55,8 +69,8 @@ $(document).ready(function(){
   //     ); 
   //     // Needs Ajax get by ID, lookup and validate email, if true, return editable desc
   // });
-  // Ajax PUT
 
+  // Ajax PUT
   // Edit Rec - No email validation version
   $recDiv.on('click','.rec-item .rec-options .rec-edit', function(e){
     e.preventDefault();
@@ -64,9 +78,28 @@ $(document).ready(function(){
     let recItem = $(this).closest('.rec-item');
     let recItemId = recItem.attr('id');
     let prevRecItemDesc = recItem.find('.rec-details h5').text();
-    
+    $.ajax({
+      method: 'PUT',
+      url: `/dashboard/recommend/${recItemId}`,
+      success: updateRecSuccess,
+      error: updateRecError
+      });
   });
 
+  // Delete Rec - No email validation version
+  $recDiv.on('click','.rec-item .rec-options .rec-delete', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let recItem = $(this).closest('.rec-item');
+    let recItemId = recItem.attr('id');
+    console.log(`delete rec clicked on ${recItem} with ${recItemId}`)
+    $.ajax({
+      method: 'DELETE',
+      url: `/dashboard/recommend/${recItemId}`,
+      success: deleteRecSuccess,
+      error: deleteRecError
+      });
+    });
 
 
 
@@ -94,6 +127,8 @@ $(document).ready(function(){
   });
 
   let markers = [];
+
+// Google Maps Search Behavior
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
@@ -152,6 +187,8 @@ $(document).ready(function(){
     map.fitBounds(bounds);
   }); // End of searchBox functioanlity
   
+// Functions used in AJAX calls
+
   function createRecItem(rec) {
     $recDiv.append(
       `<div class='rec-item' id='${rec._id}'>
@@ -173,7 +210,8 @@ $(document).ready(function(){
         lat: parseFloat(rec.latitude),
         lng: parseFloat(rec.longitude)
       }
-    });
+    }); allRecMarkers.push(recMarker);
+
     google.maps.event.addListener(recMarker, 'click', function() {
       infowindow.setContent(
         `<div>
@@ -191,8 +229,29 @@ $(document).ready(function(){
 
   function clearRecommendations() {
     $recDiv.empty();
+    allRecMarkers.forEach((pin) => {
+      pin.setMap(null);
+      });
+    };
+  
+  function updateRecSuccess(json) {
+    console.log(`Updated: ${json}`);
     };
 
+  function updateRecError(json) {
+    console.log('update error!');
+    };
+
+  function deleteRecSuccess(json) {
+    let recItem = json;
+    console.log(`${recItem} was deleted`);
+    clearRecommendations();
+    getUpdatedRecList();
+  };
+
+  function deleteRecError() {
+    console.log('deletebook error!');
+  };
 }); // End of Doc Ready
 
 //------------------drop down functionality starts here------------------------------- 

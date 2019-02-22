@@ -59,42 +59,30 @@ router.get('/dashboard/recommend/:author',(req, res) => {
 })
 
 //-------------------Update Request-----------------------
-router.put('/dashboard/recommend', (req, res) =>{
-    if (!req.query.email){
-        return res.status(400).send('Missing URL parameter: email')
-    }
-
-    db.RecommendModel.findOneAndUpdate({
-        email: req.query.email
-    }, req.body, {
-        new: true
-    })
-    .then(doc =>{
-        res.json(doc)
-    })
-    .catch(err =>{
-        res.status(500).json(err)
-    })
-
-})
+router.put('/dashboard/recommend/:id', (req, res) =>{
+    console.log('update route accessed',req.params);
+    let recId = req.params.id;
+    RecommendModel.findOneAndUpdate({_id: recId},req.body,{new: true})
+        .exec((err, updatedRec)=>{
+            if (err) {
+                console.log(err);
+            }
+            res.json(updatedRec);
+        });
+});
 
 //-------------------Delete Request-----------------------
-router.delete('/dashboard/recommend', (req, res) =>{
-    //calling in to recommend and make sure the email exist
-    if (!req.query.email){
-        return res.status(400).send('Missing URL parameter: email')
-    }
-
-    RecommendModel.findOneAndRemove({
-        email: req.query.email
-    })
-    .then(doc =>{
-        res.json(doc)
-    })
-    .catch(err =>{
-        res.status(500).json(err)
-    })
-})
+router.delete('/dashboard/recommend/:id', (req, res) =>{
+    console.log('delete route accessed',req.params);
+    let recId = req.params.id;
+    RecommendModel.findByIdAndDelete(recId)
+        .exec((err,deletedRec)=>{
+            if (err) {
+                console.log(err);
+            }
+            res.json(deletedRec);
+        });
+});
 
 
 module.exports = router
