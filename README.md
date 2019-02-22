@@ -30,7 +30,17 @@ There was no starter code. We referenced past lessons to piece together our idea
 
 Here's a screenshot of what the final product looks like:
 
+<<<<<<< HEAD
 ![whatchueatin](https://imgur.com/3mzzaI6) 
+=======
+![whatchueatin](https://imgur.com/tv14sDc)
+
+![whatchueatin](https://imgur.com/3mzzaI6)
+
+
+
+
+>>>>>>> 5e1d6a601a04928a01ff1df9d0f6e4fe8167705c
 
 ## Deliverable
 
