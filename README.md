@@ -4,23 +4,21 @@
 
 > ***Note:*** *Project 1 is a group programming project designed to show users(namely, WDI 51 students) restaurant options near the San Francisco General Assembly Campus. Our group members consist of Nicolette Lewis, Jonathan Jolivette, Bryant Pham, & Darnell Simon.*
 
-In Project 1, we attempt to put together much of the work from the last several weeks. We will be using jQuery's `ajax()` function to make calls to a Yelp's API to retrieve the coordinates of restuarants. We will then use those coordinates to load pins onto a google map. 
+For this project, we utilized the information we learned from the last several weeks. We used jQuery's AJAX function to make calls to Google Places API to retrieve coordinates of recommended restuarants. We then used those coordinates to load pins onto a Google map to display it's location. 
 
 ![](https://media.giphy.com/media/iMBIti67aQVqvIXTrr/giphy.gif)
 
 ## Objectives
 
-Developers must:
-- Use AJAX to grab data from the Yelp's API
-- Use a template literal to display data from an AJAX call on your HTML page
-- Use the Google Maps API to embed a map
-- Use the Longitude and Latitude data from Yelp's API to 
+- Use recommendation form to collect student's restaurant recommendations.
+- Use AJAX to grab Google Places API and embed restaurants on map.
+-Display restaurant information and its recommendations. 
 
 ## Watchu Eatin
 
 #### Starter code
 
-There was no started code. We referenced passed lessons to piece together our idea.
+There was no starter code. We referenced passed lessons to piece together our idea.
 
 #### Deliverable
 
@@ -32,51 +30,52 @@ Here's a screenshot of what the final product looks like:
 
 ![whatchueatin](https://cloud.githubusercontent.com/assets/4304660/25784846/9905f872-3339-11e7-92c5-30775b6bb8f4.png)
 
-If your partner forked the repository originally, you should fork their repository **after you finish working together** so that you'll have your own copy of your work to edit in the future. Link your own repo to your personal website.
 
 
-## Instructions
+## Deliverable
+
+Our goal is to:
+-Connect our frontend with our backend.
+-Display location of recommended restaurant on a map.
+-Display information about the restaurant. 
+-Create a database to save restaurant information.
+
+*******INSERT SCREENSHOT HERE*****************
 
 #### Part 1. Rendering Data
-We took a moment to familiarize ourselves with the dataset by opening it in our browser: [https://api.yelp.com/v3/businesses/].
+We familiarized ourselves with the dataset from Google Places,[https://cloud.google.com/maps-platform/places/].
 
-+ We asked ourselves, "What is the structure of the data?"
-    + "How would you grab its title?"
-        * "How would you grab its geological coordinates:"
-            - *latitude*?
-            - *longitude*?
++ We thought about how we would:
+-structure the data
+-grab its title
+-grab its coordinates
+
 
 #### Pain Point
-- Yelp does not allow frontend pull of its API.
+-Staying optisimistic, balancing optimism with reality. 
+-External API's only as good as the documentation. Are always a risk.
 
 
-Write out the AJAX call that will grab the data and `console.log` the of restaurant's geological coordinates.
+#### Lessons Learned
 
-#### Part 2. Add the Description data to the page
+Nicolette:
+-Focus on MVP, check direction of work constantly.
+-File structure is key
+-Communication is fundamental
 
-**Add each *description* to the page**: Loop over your JSON response object, and each `description` to the page using jQuery. Aim to put each description inside the `<div id="info">` section of the page. For example:
+Jonathan:
+-Delegation
+-Communication
+-Personal accountabilty is at play when working on a team to produce a product.
+-None of these components are mutually exclusive.
 
-```html
-<div id="info">
-  <p>M 4.2 - 1km ESE of Fontana, California / 123 hours ago </p>
-  <p>M 3.1 - 6km SSW of Columbus, Ohio / 77 hours ago </p>
-</div>
-```
+Bryant:
+-Better understanding of task dependencies.
+-API's are always a risk
+-File structure must be rock solid to build off of. 
 
-> **Pro-tip**: When in doubt, work in your Chrome Javascript Console! You can manipulate JSON, test your ideas, and even render elements to the page without ever touching your `app.js` file!
 
-**Switch to Template Literals**: We encourage you to use template liteals (with the `` ` ``). At a certain point it's easier to work with a *template* than to build HTML strings by hand.
-
-#### Part 3. Add Google Maps
-- Your next goal is to integrate Google Maps:
-    - Follow the tutorial at [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
-        + Note that you would normally need to sign up for an API key, but we've provided one (See `index.html` line 18)
-    - We centered our map on your GA's Campus:
-        - General Assembly San Francisco: `{lat: 37.78, lng: -122.44}`
-
-        > NOTE: The proper implementation will entail writing your code for Google Maps integration in `app.js` only.  There is no need to alter `index.html` as some resources may recommend.
-
-#### Part 4. Add pins to your map
-Once you got the map to show up, our next goal was to drop a single pin on a restuarant.
-- Finally, can you replace the pin with the `watchueatin.png` icon?
-
+Darnell:
+-Simplicity is key, the real MVP.
+-Communication is important; to understand what tasks to complete and when to complete it.
+-Prioritizing tasks based on level of importance.

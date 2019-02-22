@@ -33,6 +33,7 @@ const bodyParser = require('body-parser');
 //----------------------App Use---------------------------------
 //look at the incoming request and if it is an application/json it means the data in the body is a json string. the bodyParser will take that string convert it to json and create a property in the request object called body. and set the value there.
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // app.use((req, res, next)=>{
 //     console.log( `${new Date().toString()} => ${req.originalUrl}`, req.body)
