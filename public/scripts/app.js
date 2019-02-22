@@ -36,6 +36,74 @@ $(document).ready(function(){
       console.log("uh oh, something went wrong", err);
     }
   });
+// ---------------------------Darnell's Section----------------------
+  // Event listener on a tags
+    // Get by ID/Name
+    // grab the a tag text "On Click"
+    // ajax to get that specific data
+      // url: '/dashboard/recommend/:name
+      // Set up server side route, to .find({name: req.params.name})
+    // On success
+      // Delete html for recs
+      // Make new template with unique req data
+    // On error: flee the scene or set an alert
+
+
+// Attach a directly bound event handler
+$( "#myDropdown a" ).on( "click", function( event ) {
+  event.preventDefault();
+  console.log( $( this ).text() );
+
+  var str1 = '/dashboard/recommend/'
+  var str2 = ($( this ).text());
+  var student = str1.concat(str2);
+  console.log(student);
+
+  $.ajax({
+    method: "GET",
+    url: student,
+    success: function(res) {
+      console.log("Found it", res);
+      loadRecommendations(res);
+    },
+    error: function(err) {
+      console.log("uh oh, something went wrong", err);
+    }
+  })
+
+
+
+
+
+});
+
+
+
+    
+
+    // document.getElementById("myBtn").addEventListener("click", displayDate);
+
+
+    // $('#pwdForm').on('submit', function(e) {
+    //   e.preventDefault();
+    //   let formData = $('#landingPwd').val();
+    //   console.log(formData);
+    //   $.ajax({
+    //     method: "POST",
+    //     url: '/pwdCheck',       //ESTABLISH A ROUTE FOR THIS BAD BOY!!!!!!!!!!!!
+    //     data: formData,
+    //     success: function(res) {
+    //       console.log("welcome in to whatcu eatin!!", res);
+    //       res.redirect('/dashboard');
+    //     },
+    //     error: function(err) {
+    //       console.log("uh oh, something went wrong", err);
+    //     }
+    //   });
+    //  })
+
+// ---------------------------Darnell's Section----------------------
+
 
   // Attach a directly bound event handler
 $( "#myDropdown a" ).on( "click", function( event ) {
@@ -221,4 +289,9 @@ window.onclick = function(event) {
 
 
 
+<<<<<<< HEAD
 // ---------------landing.html functionality Ends----------------- 
+=======
+
+// ---------------landing.html functionality Ends----------------- 
+>>>>>>> 5e1d6a601a04928a01ff1df9d0f6e4fe8167705c
