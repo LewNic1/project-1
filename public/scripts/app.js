@@ -135,7 +135,7 @@ $(document).ready(function(){
           <div class='rec-details'>
             <h4>${rec.name}</h4>
             <h5>${rec.description}</h5>
-            <p>${rec.yelp}</p>
+            <p>${rec.author}</p>
           </div>
           <div class='rec-options'>
             <a href="#" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
@@ -156,6 +156,7 @@ $(document).ready(function(){
           `<div>
           <strong>${rec.name}</strong><br> 
           ${rec.description}<br>
+          - ${rec.author}
           </div>`);
         infowindow.open(map, this);
       });
@@ -170,6 +171,7 @@ $(document).ready(function(){
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+  
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -194,7 +196,40 @@ window.onclick = function(event) {
 //---------------landing.html functionality Begins----------------- 
 
 
-
+let recBy = [
+  Alom,
+  Amberly,
+  Brandon_C,
+  Brandon_J,
+  Bryant,
+  Chike,
+  Christina,
+  Darnell,
+  Enrique,
+  Eunice,
+  Ghenet,
+  Heggy,
+  Isaac,
+  Jason,
+  Jonathan_J,
+  Jonathan_R,
+  Joe,
+  Justin,
+  Karma,
+  Leo,
+  Lou,
+  Luke,
+  Matt,
+  Mike,
+  Nassima,
+  Nicolette,
+  Paris,
+  Rhea,
+  Ronni,
+  Siri,
+  Tiffany,
+  Tristan,
+]
 
 
 
