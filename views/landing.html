@@ -14,8 +14,9 @@
 
       <section class="video-section">
          <div class="video">
-            <video autoplay="" class="video-object" height="1280" loop="" width="1920"><source src="./images/bg.mp4"
+            <video id="myvideo" autoplay class="video-object" loop muted><source src="./images/bg.mp4"
             type="video/mp4"></video>
+            <script>document.getElementById('myvideo').play()</script>
          </div>
       </section>
       <!-- ============   POPUP   ================= -->
@@ -49,9 +50,11 @@
                   <h1>
                      LOGIN FOR <span>BEST RECOMMENDATIONS</span> ON PLACES TO EAT
                   </h1>
-
-                  <form>
-                     <input maxlength="8" name="pwd" placeholder="PLEASE ENTER PASSWORD" required="" type="password">
+                  <div id="validation">
+                     <!-- code appears here -->
+                  </div>
+                  <form id="pwdForm">
+                     <input  id="landingPwd" name="pwd" placeholder="PLEASE ENTER PASSWORD" type="password" required/>
                      <input type="submit" value="LOGIN">
                   </form>
                </div>
