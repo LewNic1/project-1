@@ -37,6 +37,28 @@ $(document).ready(function(){
     }
   });
 
+  // Attach a directly bound event handler
+$( "#myDropdown a" ).on( "click", function( event ) {
+  event.preventDefault();
+  console.log( $( this ).text() );
+
+  var str1 = '/dashboard/recommend/'
+  var str2 = ($( this ).text());
+  var student = str1.concat(str2);
+  console.log(student);
+
+  $.ajax({
+    method: "GET",
+    url: student,
+    success: function(res) {
+      console.log("Found it", res);
+      loadRecommendations(res);
+    },
+    error: function(err) {
+      console.log("uh oh, something went wrong", err);
+    }
+  })
+});
 
 
 // Google Maps Functions
@@ -130,7 +152,7 @@ $(document).ready(function(){
   function loadRecommendations(json) {
     let recMarker;
     json.forEach((rec) => {
-      $recDiv.append(
+      $recDiv.prepend(
         `<div class='rec-item'>
           <div class='rec-details'>
             <h4>${rec.name}</h4>
