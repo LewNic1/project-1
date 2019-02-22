@@ -11,7 +11,7 @@ $(document).ready(function(){
     console.log(formData);
     $.ajax({
       method: "POST",
-      url: '/recommend',
+      url: '/dashboard/recommend',
       data: formData,
       success: function(res) {
         console.log("success!!", res)

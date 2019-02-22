@@ -45,7 +45,7 @@ nav > h1{
   width: 50%;
 }
 .myRec{
-  /* background-color: purple; */
+  background-color: purple;
   display: flex;
   flex-direction: row-reverse;
   width: 50%;
@@ -76,9 +76,9 @@ select{
 }
 
 /*Form styling begins*/
-/* .recommend{
+.recommend{
   background-color: #28777a;
-} */
+}
 .recommend-sub{
   /*background-color: orange;*/
   background-color: #4682B4;
