@@ -135,7 +135,7 @@ $(document).ready(function(){
           <div class='rec-details'>
             <h4>${rec.name}</h4>
             <h5>${rec.description}</h5>
-            <p>${rec.yelp}</p>
+            <p>${rec.author}</p>
           </div>
           <div class='rec-options'>
             <a href="#" class='rec-edit'><i class="fas fa-pencil-alt"></i></a>
@@ -156,6 +156,7 @@ $(document).ready(function(){
           `<div>
           <strong>${rec.name}</strong><br> 
           ${rec.description}<br>
+          - ${rec.author}
           </div>`);
         infowindow.open(map, this);
       });
