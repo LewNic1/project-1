@@ -254,7 +254,8 @@ $( "#myDropdown a" ).on( "click", function( event ) {
     google.maps.event.addListener(recMarker, 'click', function() {
       infowindow.setContent(
         `<div>
-        <strong>${rec.name}</strong><br> 
+        <strong>${rec.name}</strong><br>
+        <br> 
         "${rec.description}"<br>
         - ${rec.author}
         </div>`);
