@@ -142,7 +142,6 @@ $(document).ready(function(){
           </div>
         </div>`
         );
-      console.log(`${rec.latitude}  parsed: ${parseFloat(rec.latitude)}`);
       recMarker = new google.maps.Marker({
         map: map,
         title: rec.name,
@@ -150,7 +149,15 @@ $(document).ready(function(){
           lat: parseFloat(rec.latitude),
           lng: parseFloat(rec.longitude)
         }
-      });    console.log(recMarker);
+      });
+      google.maps.event.addListener(recMarker, 'click', function() {
+        infowindow.setContent(
+          `<div>
+          <strong>${rec.name}</strong><br> 
+          ${rec.description}<br>
+          </div>`);
+        infowindow.open(map, this);
+      });
     });
   };
 
