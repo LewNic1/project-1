@@ -171,6 +171,7 @@ $(document).ready(function(){
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+  
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -195,7 +196,40 @@ window.onclick = function(event) {
 //---------------landing.html functionality Begins----------------- 
 
 
-
+let recBy = [
+  Alom,
+  Amberly,
+  Brandon_C,
+  Brandon_J,
+  Bryant,
+  Chike,
+  Christina,
+  Darnell,
+  Enrique,
+  Eunice,
+  Ghenet,
+  Heggy,
+  Isaac,
+  Jason,
+  Jonathan_J,
+  Jonathan_R,
+  Joe,
+  Justin,
+  Karma,
+  Leo,
+  Lou,
+  Luke,
+  Matt,
+  Mike,
+  Nassima,
+  Nicolette,
+  Paris,
+  Rhea,
+  Ronni,
+  Siri,
+  Tiffany,
+  Tristan,
+]
 
 
 
